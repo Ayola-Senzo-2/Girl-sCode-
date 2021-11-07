@@ -6,6 +6,8 @@ class db {
         public $password;
         public $dbname;
         public $con;
+        public $con2;
+
 		
 
   // class constructor
