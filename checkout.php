@@ -24,13 +24,14 @@ $db = new db();
 
 <?php
     require_once ('php/header.php');
-    
+
     $total = $_POST["food_total"];
     $total = number_format($total,2);
     $food = $_POST["food_items"];
+    $fullAddress = $_SESSION['fullAdress'];
 
 
-    confirmOrder($food,$total,'0.00','','');
+    confirmOrder($food,$total,'0.00','',$fullAddress);
 ?>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

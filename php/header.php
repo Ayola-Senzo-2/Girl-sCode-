@@ -38,12 +38,12 @@
             $_SESSION['city'] =  $row['cust_add_city'];
             $_SESSION['street'] = $row['cust_street'];
             $_SESSION['portal_code'] = $row['cust_add_portalcode'];
-            $_SESSION['fullyAdress'] = $row['cust_street'].", ".$row['cust_add_city'].", ".$row['cust_add_portalcode'];
+            $_SESSION['fullAdress'] = $row['cust_street'].", ".$row['cust_add_city'].", ".$row['cust_add_portalcode'];
             }
         else 
             $selsel="";
-            $fullyAdress = $row['cust_street'].", ".$row['cust_add_city'].", ".$row['cust_add_portalcode'];
-            echo "<option  value=".$row['cust_address_id'].$selsel.">".$fullyAdress."</option>";  
+            $fullAdress = $row['cust_street'].", ".$row['cust_add_city'].", ".$row['cust_add_portalcode'];
+            echo "<option  value=".$row['cust_address_id'].$selsel.">".$fullAdress."</option>";  
         }
 
         echo"</select>";

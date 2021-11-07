@@ -70,24 +70,30 @@ function confirmOrder($items, $total, $delivery_fee, $delivery_type, $delivery_a
         <h4 class=\"text-center text-complete-order\">Complete your order!</h4>
         <div class=\"p-3 mb-2 text-center\">
           <h6 class=\"lead\"><b>Items(s) : </b>$items</h6>
-        
           <h6 class=\"lead\"><b>Delivery Charge : </b>Free</h6>
-          <h5><b>Total Amount Payable : </b>R$total</h5>
+          <h5><b>Total Amount: </b>R$total</h5>
         </div>
-        <form action=\"\" method=\"post\" id=\"placeOrder\">
+
+        <div class=\"p-3 mb-2 form-group\">
+        <h6 class=\"lead\"><b>Deliver To:</h6>
+          <h6>$delivery_address</h6>
+        </div>
+        <form action=\"#\" method=\"post\" id=\"placeOrder\">
           <input type=\"hidden\" name=\"products\" value=\"food\">
           <input type=\"hidden\" name=\"grand_total\" value=\"44\">
-          
-          <h6 class=\"text-center lead\">Select Payment Mode</h6>
+          <h6 class=\"\">Select Payment Mode</h6>
           <div class=\"form-group\">
             <select name=\"pmode\" class=\"form-control\">
               <option value=\"cod\">Cash On Delivery</option>
+              <option value=\"cod\">Pay Online</option>
             </select>
           </div>
           <div class=\"form-group\">
             <input type=\"submit\" name=\"submit\" value=\"Confirm Order\" class=\"btn-c text-center\">
           </div>
         </form>
+
+        
       </div>
     </div>
   </div>  
