@@ -55,9 +55,45 @@ function cartElement($food_image, $food_name,$canteen_name, $food_price, $food_i
     
     ";
     echo  $element;
+}
 
 
 
+
+function confirmOrder($items, $total, $delivery_fee, $delivery_type, $delivery_address){
+
+     $element = "
+     
+    <div class=\"container confirm-container\">
+    <div class=\"row justify-content-center\">
+      <div class=\"col-lg-6 px-4 pb-4 card \"  id=\"order\">
+        <h4 class=\"text-center text-complete-order\">Complete your order!</h4>
+        <div class=\"p-3 mb-2 text-center\">
+          <h6 class=\"lead\"><b>Items(s) : </b>$items</h6>
+        
+          <h6 class=\"lead\"><b>Delivery Charge : </b>Free</h6>
+          <h5><b>Total Amount Payable : </b>R$total</h5>
+        </div>
+        <form action=\"\" method=\"post\" id=\"placeOrder\">
+          <input type=\"hidden\" name=\"products\" value=\"food\">
+          <input type=\"hidden\" name=\"grand_total\" value=\"44\">
+          
+          <h6 class=\"text-center lead\">Select Payment Mode</h6>
+          <div class=\"form-group\">
+            <select name=\"pmode\" class=\"form-control\">
+              <option value=\"cod\">Cash On Delivery</option>
+            </select>
+          </div>
+          <div class=\"form-group\">
+            <input type=\"submit\" name=\"submit\" value=\"Confirm Order\" class=\"btn-c text-center\">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>  
+     
+     ";
+     echo $element;
 }
 
 

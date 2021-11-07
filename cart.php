@@ -97,7 +97,7 @@ if (isset($_POST['remove'])){
                                 echo "<h6>Price (0 items)</h6>";
                             }
                         ?>
-                        
+
                         <h6>Delivery Charges</h6>
                         <hr>
                         <h6>Total</h6>
@@ -111,7 +111,7 @@ if (isset($_POST['remove'])){
                     </div>
 
                     <div class="col-md-6 checkout">
-                        <form action="http://localhost/cart/checkout.php" method="GET" >
+                        <form action="http://localhost/cart/checkout.php" method="POST" >
                             <input type="hidden" name="food_items" value="<?php echo $allItems;?>">
                             <input type="hidden" name="food_total" value="<?php echo $total;?>">
                             <button type="submit" class="btn add-cart-btn" name="checkout">Proceed to checkout</button>                    

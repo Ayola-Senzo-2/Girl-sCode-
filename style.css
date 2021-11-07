@@ -67,3 +67,17 @@
     align-content: center;
    
 }
+
+.btn-c{
+    background-color: #f97338;
+    color: white;
+}
+
+.confirm-container{
+    margin-top: 10%;
+}
+
+.text-complete-order{
+    margin-top: 5%;
+    color: #f97338;
+}
