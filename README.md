@@ -6,7 +6,7 @@ database file is at directory 'db/AllCanteen.sql'
 
 To config the database connect open up this file 'php/db.php'
 
-the fill will look like this 
+the file will look like this 
 
 ```
  class db {
