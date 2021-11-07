@@ -97,6 +97,7 @@ if (isset($_POST['remove'])){
                                 echo "<h6>Price (0 items)</h6>";
                             }
                         ?>
+                        
                         <h6>Delivery Charges</h6>
                         <hr>
                         <h6>Total</h6>

@@ -8,7 +8,7 @@ class db {
         public $con;
 		
 
-        // class constructor
+  // class constructor
     public function __construct($dbname = "allcanteen",$servername = "localhost",$username = "root", $password = ""){
       $this->dbname = $dbname;
       $this->servername = $servername;
@@ -17,7 +17,7 @@ class db {
 
           // create connection
         $this->con = mysqli_connect($servername, $username, $password);
-		mysqli_select_db($this->con,"allcanteen");
+		mysqli_select_db($this->con,$this->dbname);
 
 		
 		 // Check connection
