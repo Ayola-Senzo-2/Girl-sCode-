@@ -8,17 +8,34 @@ To config the database connect open up this file 'php/db.php'
 
 the fill will look like this 
 
-  // class constructor
-    public function __construct($dbname = "allcanteen",$servername = "localhost",$username = "root", $password = ""){
-      $this->dbname = $dbname;
-      $this->servername = $servername;
-      $this->username = $username;
-      $this->password = $password;
+```
+ class db {
+	
+        public $servername;
+        public $username;
+        public $password;
+        public $dbname;
+        public $con;
+		
+	  // class constructor
+	    public function __construct($dbname = "allcanteen",$servername = "localhost",$username = "root", $password = ""){
+	      $this->dbname = $dbname;
+	      $this->servername = $servername;
+	      $this->username = $username;
+	      $this->password = $password;
 
           // create connection
-        $this->con = mysqli_connect($servername, $username, $password);
-	    	mysqli_select_db($this->con,"allcanteen"); // Dabate name can be changed too.
-	}
+            $this->con = mysqli_connect($servername, $username, $password);
+		mysqli_select_db($this->con,$this->dbname);
+
+        // Check connection
+         if (!$this->con){
+            die("Connection failed : " . mysqli_connect_error());
+          }
+			
+	}	
+}
+```
   
   Make changes on the $dbname, $servername, $username, $password
 
