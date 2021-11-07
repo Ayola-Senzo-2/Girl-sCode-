@@ -18,28 +18,32 @@
         </button>
 
 
-        <form name=form1 action='' method=GET>
+        <form name=form1 action='' method=POST>
 
 
         <?php
+     
 
 
-        if (isset($_GET['cust_address_id']))   
-            $selval=$_GET['cust_address_id'];
+        if (isset($_POST['cust_address_id']))   
+            $selval=$_POST['cust_address_id'];
         else 
              $selval='%';
 
         echo "<select name=cust_address_id onchange='form1.submit()'>";
         $result = $db->getCustomerAddress();
         while ($row = mysqli_fetch_assoc($result)){
-            if ($selval==$row['cust_address_id']) 
+            if ($selval==$row['cust_address_id']){
             $selsel=" Selected";
+            $_SESSION['city'] =  $row['cust_add_city'];
+            $_SESSION['street'] = $row['cust_street'];
+            $_SESSION['portal_code'] = $row['cust_add_portalcode'];
+            $_SESSION['fullyAdress'] = $row['cust_street'].", ".$row['cust_add_city'].", ".$row['cust_add_portalcode'];
+            }
         else 
             $selsel="";
-  
-
-    echo "<option  value=".$row['cust_address_id'].$selsel.">".		 $row['cust_address']."</option>";
-            
+            $fullyAdress = $row['cust_street'].", ".$row['cust_add_city'].", ".$row['cust_add_portalcode'];
+            echo "<option  value=".$row['cust_address_id'].$selsel.">".$fullyAdress."</option>";  
         }
 
         echo"</select>";

@@ -12,7 +12,7 @@ if (isset($_POST['remove'])){
       foreach ($_SESSION['cart'] as $key => $value){
           if($value["food_id"] == $_GET['id']){
               unset($_SESSION['cart'][$key]);
-              echo "<script>alert('Food has been Removed...!')</script>";
+              //echo "<script>alert('Food has been Removed...!')</script>";
               echo "<script>window.location = 'cart.php'</script>";
           }
       }

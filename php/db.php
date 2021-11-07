@@ -48,7 +48,7 @@ class db {
 
     public function getCustomerAddress(){
 
-        $sql = "SELECT DISTINCT cust_address_id, c.customer_id, ca.customer_id, cust_address, cust_address_latitude, cust_address_longitude 
+        $sql = "SELECT DISTINCT cust_address_id, c.customer_id, ca.customer_id, cust_street, cust_add_city, cust_add_portalcode 
         FROM 
         customer_address ca, customer c
         WHERE ca.customer_id = c.customer_id
