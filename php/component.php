@@ -114,10 +114,32 @@ function addressDropDown($address){
          </select>
         ";
         
-
-   
     echo $element;
 }
+
+
+function signin(){
+
+    $element = "
+    <div class=\"container confirm-container\">
+    <div class=\"row justify-content-center\">
+      <div class=\"col-lg-6 px-4 pb-4 card \"  id=\"order\">
+        <h4 class=\"text-center text-complete-order\">Singin</h4>
+        <div class=\"p-3 mb-2 text-center\">
+          
+        </div>
+
+        <form action=\"#\" method=\"post\">
+        <input type=\"number\" class=\"signin-input\" name=\"phone\" placeholder=\"phone\" autofocus=\"true\"/>
+        <input type=\"password\" class=\"signin-input\" name=\"password\" placeholder=\"Password\"/>
+        <input type=\"submit\" value=\"Sign In\" name=\"submit\" class=\"signin-btn\"/>
+        </form> 
+      </div>
+    </div>
+  </div> ";
+     echo $element;
+}
+
 
 
 

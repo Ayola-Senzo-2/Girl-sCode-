@@ -74,6 +74,9 @@ if (isset($_POST['remove'])){
 
                         $allItems = implode(', ', $items);
 
+                        $_SESSION['grand_total'] =  $total;
+                        $_SESSION['items'] =  $allItems;
+
                     }else{
                         echo "<h5>Cart is Empty</h5>";
                     }

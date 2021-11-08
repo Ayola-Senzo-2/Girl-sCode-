@@ -74,10 +74,16 @@
 }
 
 .confirm-container{
-    margin-top: 0%;
+    margin-top: 5%;
 }
 
 .text-complete-order{
     margin-top: 5%;
     color: #f97338;
+}
+
+.signup-link{
+    background-color: #f97338;
+    align-content: flex-end;
+    position: absolute;
 }
