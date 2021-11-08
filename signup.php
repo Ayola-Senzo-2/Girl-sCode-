@@ -13,9 +13,10 @@ if(isset($_POST["Sign_UpBtn"])) {
 
 if($conn->query($qry)===TRUE){
     echo $qry;
+    echo "please work";
 }
 
-
+///// me
 
   //  $GLOBALS['conn']->query($qry);
     
