@@ -1,4 +1,64 @@
-<!DOCTYPE html>
+<?php
+include 'connection.php';
+if(isset($_POST["Sign_UpBtn"])) {
+		
+    $firstname = $_POST["firstname"];
+    $lastname = $_POST["lastname"];
+    $email= $_POST["email"];
+    $phone = $_POST["phone"];
+    $password = MD5($_POST["password"]);		
+    
+    $qry = "INSERT INTO customer (customer_f_name, customer_l_name, customer_email, customer_phone,customer_password)
+                    VALUES ( '$firstname', '$lastname' , '$email' , $phone,'$password' )";
+
+if($conn->query($qry)===TRUE){
+    echo $qry;
+}
+
+
+
+  //  $GLOBALS['conn']->query($qry);
+    
+  
+}
+
+?>
+
+<head>
+<script type="text/javascript">
+function validatePassword(pwd1, pwd2)
+{sok = true;
+
+if (pwd1 == "")
+{
+sok = false;
+alert ("Password cannot be empty");
+}
+if (pwd1 != pwd2)
+{
+alert ("Passwords must match");
+sok = false;
+
+}
+
+return sok;
+}
+
+</script>
+</head>
+
+<h2>Sign Up</h2>
+<form action="" method=POST onsubmit = "return validatePassword(password.value, password2.value)">
+<table>
+<tr><td>First Name</td><td><input value="Dingaan" type=text name="firstname"></td></tr>
+<tr><td>Last Name </td><td><input value="Letjane" type=text name="lastname"></td></tr>
+<tr><td>E-mail</td><td><input value="velly@gmail.com" type=email name="email"></td></tr>
+<tr><td>Phone</td><td><input value=0000000000 type=text name="phone"></td></tr>
+<tr><td>Password</td><td><input type=password name="password"></td></tr>
+<tr><td>Retype password</td><td><input type=password name="password2"></td></tr>
+<tr><td colspan=2><input type=submit name = "Sign_UpBtn" value="Sign UP"></td></tr>
+</table>
+</form><!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8"/>
