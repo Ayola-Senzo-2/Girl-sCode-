@@ -1,7 +1,12 @@
+<?php 
+include_once("./config.php");
+
+?>
+
 
 <header id="header">
     <nav class="navbar navbar-expand-lg nav-bg">
-        <a href="index.php" class="navbar-brand">
+        <a href="<?php echo BASE_URL."index.png"; ?>" class="navbar-brand">
             <h3 class="px-5 menu-title">
                 <i class="fas fa-shopping-basket"></i> AllCanteen
             </h3>
@@ -59,13 +64,13 @@
             <div class="navbar-nav">
 
             
-            <a href="#" class="nav-item nav-link active">
+            <a href="<?php echo BASE_URL."search_food.png"; ?>" class="nav-item nav-link active">
                     <h5 class="px-5 cart menu-title">
                     <i class="far fa-search"></i> Search     
                     </h5>
                 </a>
 
-                <a href="cart.php" class="nav-item nav-link active">
+                <a href="<?php echo BASE_URL."cart.png"; ?>" class="nav-item nav-link active">
                     <h5 class="px-5 cart menu-title">
                         <i class="fas fa-shopping-cart"></i> Cart
                         <?php
@@ -82,7 +87,7 @@
                 </a>
 
 
-                <a href="#" class="nav-item nav-link active">
+                <a href="<?php echo BASE_URL."profile.png"; ?>" class="nav-item nav-link active">
                     <h5 class="px-5 cart menu-title">
                     <i class="far fa-user-circle"></i> Profile     
                     </h5>
@@ -93,9 +98,3 @@
 
     </nav>
 </header>
-
-
-
-
-
-
