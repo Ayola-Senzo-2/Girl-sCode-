@@ -87,3 +87,10 @@
     align-content: flex-end;
     position: absolute;
 }
+
+.search-container{
+    margin-top: 3%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

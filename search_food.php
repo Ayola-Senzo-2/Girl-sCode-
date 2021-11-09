@@ -1,3 +1,15 @@
+<?php
+session_start();
+
+require_once ('php/db.php');
+require_once ('./php/component.php');
+
+
+//create instance of db class
+$db = new db();
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,7 +34,21 @@
 <?php require_once ("php/header.php"); ?>
 
 
+        <div class="search-container">
+        <form action="search_food.php" method="get">
+            <input class="search-input"  size="50" type=text name=search_food placeholder="search food"> 
+            <input class="btn btn-secondary" name= "search_btn" type=submit>
+         </form>
+         </div>
 
+         <?php if(isset($_GET['search_btn'])){ 
+            
+            
+         
+        
+        }
+
+         ?>
 
 </body>
 </html>
