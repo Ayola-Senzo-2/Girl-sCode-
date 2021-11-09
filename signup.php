@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+include_once('connection.php');
+
 require_once ('php/db.php');
 require_once ('./php/component.php');
 //create instance of db class
