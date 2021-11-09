@@ -35,20 +35,21 @@ $db = new db();
 
 
         <div class="search-container">
-        <form action="search_food.php" method="get">
+        <form action="search_food.php" method="POST">
             <input class="search-input"  size="50" type=text name=search_food placeholder="search food"> 
             <input class="btn btn-secondary" name= "search_btn" type=submit>
          </form>
          </div>
 
-         <?php if(isset($_GET['search_btn'])){ 
-            
-            
-         
-        
-        }
+         <?php if(isset($_POST['search_btn'])){ 
+             
+             
+             echo "<script>alert('searching');</script>";?>
 
-         ?>
+
+
+        
+        <?php } ?>
 
 </body>
 </html>

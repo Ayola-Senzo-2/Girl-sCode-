@@ -1,5 +1,6 @@
 <?php 
 include_once("./config.php");
+//error_reporting(0);
 
 ?>
 
@@ -27,33 +28,41 @@ include_once("./config.php");
 
 
         <?php
-     
 
 
-        if (isset($_POST['cust_address_id']))   
-            $selval=$_POST['cust_address_id'];
-        else 
-             $selval='%';
+if(isset($_SESSION['customer_id'])){
 
-        echo "<select name=cust_address_id onchange='form1.submit()'>";
-        $result = $db->getCustomerAddress();
-        while ($row = mysqli_fetch_assoc($result)){
-            if ($selval==$row['cust_address_id']){
-            $selsel=" Selected";
-            $_SESSION['city'] =  $row['cust_add_city'];
-            $_SESSION['street'] = $row['cust_street'];
-            $_SESSION['portal_code'] = $row['cust_add_portalcode'];
-            $_SESSION['fullAdress'] = $row['cust_street'].", ".$row['cust_add_city'].", ".$row['cust_add_portalcode'];
-            }
-        else 
-            $selsel="";
-            $fullAdress = $row['cust_street'].", ".$row['cust_add_city'].", ".$row['cust_add_portalcode'];
-            echo "<option  value=".$row['cust_address_id'].$selsel.">".$fullAdress."</option>";  
-        }
-
-        echo"</select>";
+    $customer_id = $_SESSION['customer_id'];
 
 
+    if (isset($_POST['cust_address_id']))   
+    $selval=$_POST['cust_address_id'];
+    else 
+     $selval='%';
+
+echo "<select name=cust_address_id onchange='form1.submit()'>";
+$result = $db->getCustomerAddress($customer_id);
+while ($row = mysqli_fetch_assoc($result)){
+    if ($selval==$row['cust_address_id']){
+    $selsel=" Selected";
+    $_SESSION['city'] =  $row['cust_add_city'];
+    $_SESSION['street'] = $row['cust_street'];
+    $_SESSION['portal_code'] = $row['cust_add_portalcode'];
+    $_SESSION['fullAdress'] = $row['cust_street'].", ".$row['cust_add_city'].", ".$row['cust_add_portalcode'];
+
+    }
+ else 
+    $selsel="";
+    $fullAdress = $row['cust_street'].", ".$row['cust_add_city'].", ".$row['cust_add_portalcode'];
+    echo "<option  value=".$row['cust_address_id'].$selsel.">".$fullAdress."</option>";  
+}
+
+echo"</select>";
+
+} else{
+
+}
+    
         ?>
 
         </form>
@@ -86,12 +95,19 @@ include_once("./config.php");
                     </h5>
                 </a>
 
+                <?php if(isset($_SESSION['customer_id']))
+                { ?>
 
-                <a href="<?php echo BASE_URL."profile.php"; ?>" class="nav-item nav-link active">
+               <a href="<?php echo BASE_URL."profile.php"; ?>" class="nav-item nav-link active">
                     <h5 class="px-5 cart menu-title">
-                    <i class="far fa-user-circle"></i> Profile     
-                    </h5>
-                </a>
+                    <i class="far fa-user-circle"></i> Profile</h5></a>
+
+                <?php }  else  { ?>
+
+                    <a href="<?php echo BASE_URL."user_auth.php"; ?>" class="nav-item nav-link active">
+                    <h5 class="px-5 cart menu-title">
+                    <i class="far fa-user-circle"></i> Sign in</h5></a>
+                    <?php }?>
 
             </div>
         </div>

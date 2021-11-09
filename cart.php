@@ -20,6 +20,7 @@ if (isset($_POST['remove'])){
 }
 
 
+
 ?>
 
 <!doctype html>
@@ -114,7 +115,7 @@ if (isset($_POST['remove'])){
                     </div>
 
                     <div class="col-md-6 checkout">
-                        <form action="http://localhost/cart/checkout.php" method="POST" >
+                        <form action="http://localhost/cart/checkout.php" name="btn-checkout" method="POST" >
                             <input type="hidden" name="food_items" value="<?php echo $allItems;?>">
                             <input type="hidden" name="food_total" value="<?php echo $total;?>">
                             <button type="submit" class="btn add-cart-btn" name="checkout">Proceed to checkout</button>                    

@@ -1,7 +1,8 @@
 <?php
+
+require_once('config.php');
 include 'connection.php';
 session_start();
-
 require_once ('php/db.php');
 require_once ('./php/component.php');
 //create instance of db class
@@ -9,10 +10,25 @@ $db = new db();
 
 if(isset($_POST['Sign_InBtn'])) {
 
-    $phone = $_POST["phone"];
-    $password = MD5($_POST["password"]);		
+    $phone = mysqli_real_escape_string($conn,$_POST["phone"]);
+    $password = mysqli_real_escape_string($conn,$_POST["password"]);
+    $password = md5($password);
 
-}
+
+        $sql = "SELECT customer_id FROM customer WHERE customer_phone = '$phone'
+                AND customer_password = '$password'";
+
+            $result = mysqli_query($conn,$sql);
+
+            if(mysqli_num_rows($result)>0){
+                $rows = mysqli_fetch_assoc($result);
+                $_SESSION["customer_id"] = $rows['customer_id'];
+                header("Location: index.php");        
+            }else{
+                echo "<script> alert('Login failed. Please try again')</script>";
+            }
+    } 
+  
 
 ?>
 
@@ -25,10 +41,7 @@ if(isset($_POST['Sign_InBtn'])) {
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>AllCanteen</title>
-
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.css" />
-
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
 
@@ -88,19 +101,25 @@ if(isset($_POST['Sign_InBtn'])) {
     </nav>
 </header>
 
-<h2>Sign In</h2>
-<form action = "" method="POST">
-<table>
-<tr>
-<td>Phone</td><td><input type=text name="phone"></td></tr>
-<tr><td>Password</td><td><input type=password name="password"></td></tr>
-</table><br>
-
-<input name= "Sign_InBtn" type=submit value="Sign In"><br>
-<a href='SUGN_UP.php'>Sign up</a>
-</form>
-
-
+<div class="container confirm-container">
+    <div class="row justify-content-center">
+      <div class="col-lg-6 px-4 pb-4 card">
+        <h4 class="text-center text-complete-order">Sing in</h4>
+        <div class="p-3 mb-2 text-center">
+          
+     </div>
+        <form action = "" method="POST">
+            <table>
+            <tr>
+            <td>Phone</td><td><input type=text name="phone"></td></tr>
+            <tr><td>Password</td><td><input type=password name="password"></td></tr>
+            </table><br>
+            <input class="btn btn-primary" name= "Sign_InBtn" type=submit value="sign in"> 
+            <a class="btn btn-secondary" href='<?php echo BASE_URL."signup.php"; ?>'>sign up</a>
+        </form>
+      </div>
+    </div>
+  </div> 
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

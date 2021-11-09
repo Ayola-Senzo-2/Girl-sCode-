@@ -6,6 +6,24 @@ require_once ("php/db.php");
 require_once("./php/component.php");
 
 $db = new db();
+
+if(isset($_POST['checkout'])){
+    if(isset($_SESSION['customer_id'])){
+        if(isset($_SESSION['fullAdress'])){
+
+        } else {
+            echo "<script>alert('Please select a delivery address...');
+            document.location ='cart.php'</script>";
+        }
+
+    } else {
+
+        echo "<script>alert('Please sign in first...');
+        document.location ='user_auth.php'</script>";
+    }  
+}
+
+
 ?>
 
 <!doctype html>
@@ -29,8 +47,6 @@ $db = new db();
     $items = $_SESSION['items'];
     $total = number_format($total,2);
     $fullAddress = $_SESSION['fullAdress'];
-    
-
 
     confirmOrder($items,$total,'0.00','',$fullAddress,$items);
 ?>

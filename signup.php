@@ -16,12 +16,12 @@ if(isset($_POST["Sign_UpBtn"])) {
     $phone = mysqli_real_escape_string($conn,$_POST["phone"]);
     $password = mysqli_real_escape_string($conn,$_POST["password"]);
 
-    $password = password_hash($password, PASSWORD_DEFAULT);
+    $password = md5($password);
 
-    $check_email = "SELECT * FROM customer WHERE customer_email = '$email'";
+    $check_phone = "SELECT * FROM customer WHERE customer_phone = '$phone'";
 
-    if(mysqli_num_rows(mysqli_query($conn,$check_email))>0){
-        echo "<script> alert('Email is already taken.')</script>";
+    if(mysqli_num_rows(mysqli_query($conn,$check_phone))>0){
+        echo "<script> alert('Phone is already taken.')</script>";
     } else {
 
        $sql = "INSERT INTO customer (customer_f_name, customer_l_name, customer_email, 
@@ -111,18 +111,27 @@ if(isset($_POST["Sign_UpBtn"])) {
 </header>
 
 
-<h2>Sign Up</h2>
-<form action="" method=POST onsubmit = "return validatePassword(password.value, password2.value)">
-<table>
-<tr><td>First Name</td><td><input value="Dingaan" type=text name="firstname"></td></tr>
-<tr><td>Last Name </td><td><input value="Letjane" type=text name="lastname"></td></tr>
-<tr><td>E-mail</td><td><input value="velly@gmail.com" type=email name="email"></td></tr>
-<tr><td>Phone</td><td><input value=0000000000 type=text name="phone"></td></tr>
-<tr><td>Password</td><td><input type=password value=0000000000 name="password"></td></tr>
-<tr><td>Retype password</td><td><input value=0000000000 type=password name="password2"></td></tr>
-<tr><td colspan=2><input type=submit  name = "Sign_UpBtn" value="Sign UP"></td></tr>
-</table>
-</form>
+<div class="container confirm-container">
+    <div class="row justify-content-center">
+      <div class="col-lg-6 px-4 pb-4 card">
+        <h4 class="text-center text-complete-order">Sign up</h4>
+        
+        <form action="" method=POST onsubmit = "return validatePassword(password.value, password2.value)">
+        <table>
+        <tr><td>First Name</td><td><input value="Dingaan" type=text name="firstname"></td></tr>
+        <tr><td>Last Name </td><td><input value="Letjane" type=text name="lastname"></td></tr>
+        <tr><td>E-mail</td><td><input value="velly@gmail.com" type=email name="email"></td></tr>
+        <tr><td>Phone</td><td><input value=0000000000 type=text name="phone"></td></tr>
+        <tr><td>Password</td><td><input type=password value=0000000000 name="password"></td></tr>
+        <tr><td>Confirm password </td><td><input value=0000000000 type=password name="password2"></td></tr>
+        </table>
+        <input size='50'  class="btn btn-success"type=submit  name = "Sign_UpBtn" value="Sign up">
+        </form>
+        <button  class="btn btn-primary btn-sign" value="sign in">Sign in</button>
+      </div>
+    </div>
+  </div>
+
 
 <script type="text/javascript">
 function validatePassword(pwd1, pwd2){ 

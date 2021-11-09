@@ -46,13 +46,13 @@ class db {
     }
 
 
-    public function getCustomerAddress(){
+    public function getCustomerAddress($customer_id){
 
         $sql = "SELECT DISTINCT cust_address_id, c.customer_id, ca.customer_id, cust_street, cust_add_city, cust_add_portalcode 
         FROM 
         customer_address ca, customer c
         WHERE ca.customer_id = c.customer_id
-        AND ca.customer_id = 1";
+        AND ca.customer_id = '$customer_id'";
 
        //$sql = "SELECT * FROM customer_address WHERE customer_id = 2";
 
