@@ -7,6 +7,8 @@ require_once ('./php/component.php');
 
 //create instance of db class
 $db = new db();
+
+
 ?>
 
 
@@ -36,18 +38,30 @@ $db = new db();
 
         <div class="search-container">
         <form action="search_food.php" method="POST">
-            <input class="search-input"  size="50" type=text name=search_food placeholder="search food"> 
+            <input class="search-input" required size="50" type=text name=search_query placeholder="search food or canteen"> 
             <input class="btn btn-secondary" name= "search_btn" type=submit>
          </form>
          </div>
 
-         <?php if(isset($_POST['search_btn'])){ 
-             
-             
-             echo "<script>alert('searching');</script>";?>
+         <?php if(isset($_POST['search_btn'])){?>
 
 
-
+      <div class="container">
+        <div class="row text-center py-5">
+        <?php
+                $result = $db->searchFood($_POST['search_query']);
+                if( $result===0)
+                {                    
+                    echo "<script>alert('No food or canteen found, please search again...');
+                    document.location ='search_food.php'</script>";
+                } else {
+                while ($row = mysqli_fetch_assoc($result)){
+				component($row['food_name'],$row['canteen_name'],$row['food_desc'], $row['food_price'], $row['food_image'], $row['food_id']);
+                
+                }}?>
+            </div>
+        </div>
+           
         
         <?php } ?>
 

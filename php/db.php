@@ -46,6 +46,24 @@ class db {
     }
 
 
+    public function searchFood($search_query){
+        $sql = "SELECT food_id, f.canteen_id, c.canteen_id, food_name,food_desc,food_image, food_status, 
+        food_price, canteen_name 
+        FROM food f, canteen c
+        WHERE f.canteen_id = c.canteen_id
+        AND LOWER(food_name) LIKE '%$search_query%' OR LOWER(canteen_name) LIKE '%$search_query%'
+        ORDER BY food_id DESC";
+
+        $result = mysqli_query($this->con, $sql);
+
+        if(mysqli_num_rows($result) > 0){
+            return $result;
+        } else{
+            return 0;
+        }
+    }
+
+
     public function getCustomerAddress($customer_id){
 
         $sql = "SELECT DISTINCT cust_address_id, c.customer_id, ca.customer_id, cust_street, cust_add_city, cust_add_portalcode 
