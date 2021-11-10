@@ -37,11 +37,33 @@ $db = new db();
 
 
         <div class="search-container">
-        <form action="search_food.php" method="POST">
+
+        <form action="search_food.php" method="GET">
+
+       <div class="slidecontainer">
+       <span>Price Range: </span> 
+         <input type="range" min="1" max="100" name="price-range" value="50" class="slider" id="myRange">
+         <p>From R0 To R<span id="demo"></span></p>
+
+        </div>
+
+        <div class="filter-dropdown">
+        <span>Filter by Canteens: </span> 
+        <select class="search-input" width="50"  name="filter-canteen" onchange='filter.submit()'>
+        <option name="filter-canteen" value="">option1</option>
+        <option name="filter-canteen" value="">option2</option>
+        <option name="filter-canteen" value="">option3</option>
+        <option name="filter-canteen" value="">option3</option>
+        </select>
+        </div>
+
+        <br>
             <input class="search-input" required size="50" type=text name=search_query placeholder="search food or canteen"> 
-            <input class="btn btn-secondary" name= "search_btn" type=submit>
+            <input class="btn btn-secondary" name= "search_btn" Value="Search" type=submit>
          </form>
          </div>
+
+
 
          <?php if(isset($_POST['search_btn'])){?>
 
@@ -64,6 +86,16 @@ $db = new db();
            
         
         <?php } ?>
+
+<script>
+        var slider = document.getElementById("myRange");
+        var output = document.getElementById("demo");
+        output.innerHTML = slider.value;
+
+        slider.oninput = function() {
+        output.innerHTML = this.value;
+}
+</script>
 
 </body>
 </html>
