@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 11, 2021 at 06:11 PM
+-- Generation Time: Nov 14, 2021 at 08:58 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.6
 
@@ -21,39 +21,35 @@ SET time_zone = "+00:00";
 -- Database: `allcanteen`
 --
 
+DROP DATABASE IF EXISTS `AllCanteen`;
+CREATE DATABASE IF NOT EXISTS `AllCanteen`;
+SET FOREIGN_KEY_CHECKS=0;
+
+USE `AllCanteen`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `canteen`
 --
 
-
-
-DROP DATABASE IF EXISTS `AllCanteen`;
-CREATE DATABASE IF NOT EXISTS `AllCanteen`;
-SET FOREIGN_KEY_CHECKS=0;
-
-USE `AllCanteen`;
-
 CREATE TABLE `canteen` (
   `canteen_id` int(11) NOT NULL,
   `canteen_name` varchar(25) NOT NULL,
-  `canteen_address` text NOT NULL,
-  `canteen_phone` int(9) NOT NULL,
-  `canteen_email` varchar(30) NOT NULL,
+  `canteen_street` varchar(64) NOT NULL,
+  `canteen_city` varchar(64) NOT NULL,
+  `canteen_postal_code` varchar(4) NOT NULL,
+  `canteen_phone` varchar(10) NOT NULL,
+  `canteen_email` varchar(56) NOT NULL,
   `canteen_logo` varchar(1000) NOT NULL,
-  `canteen_minimum_order` float NOT NULL,
   `canteen_comission` char(3) NOT NULL,
   `canteen_created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `canteen_updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `canteen_opening_time` time NOT NULL,
   `canteen_closing_time` time NOT NULL,
-  `canteen_status` varchar(10) NOT NULL,
+  `canteen_status` int(1) NOT NULL,
   `canteen_ownerid` int(11) NOT NULL,
   `canteen_ownerpassword` char(32) NOT NULL,
   `canteen_delivery_type` varchar(10) NOT NULL,
-  `canteen_take_away` varchar(15) NOT NULL,
-  `canteen_food_section` varchar(25) NOT NULL,
   `canteen_earnings` float NOT NULL,
   `zone_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -62,17 +58,17 @@ CREATE TABLE `canteen` (
 -- Dumping data for table `canteen`
 --
 
-INSERT INTO `canteen` (`canteen_id`, `canteen_name`, `canteen_address`, `canteen_phone`, `canteen_email`, `canteen_logo`, `canteen_minimum_order`, `canteen_comission`, `canteen_created_at`, `canteen_updated_at`, `canteen_opening_time`, `canteen_closing_time`, `canteen_status`, `canteen_ownerid`, `canteen_ownerpassword`, `canteen_delivery_type`, `canteen_take_away`, `canteen_food_section`, `canteen_earnings`, `zone_id`) VALUES
-(1, 'Corridor cafe', 'zeekoewater 311-JS, Emalahleni, 1035', 817739896, 'coriidor@gmail.com', 'canteen.png', 0, '10%', '2021-10-30 12:11:01', '2021-10-30 12:11:01', '08:00:00', '20:00:00', 'Open', 1, 'corridorcanteen50', 'home', 'available', 'fast foods', 1050, 1),
-(2, 'Khayalethu Canteen', '17 Dederichs St, Witbank, Emalahleni,1035', 767783957, 'khayalethu@gmail.com', 'canteen.png', 10, '10%', '2021-10-30 12:11:03', '2021-10-30 12:11:03', '08:00:00', '22:00:00', 'Open', 2, 'khayalethucanteen', 'home', 'available', 'sweets', 500, 2),
-(3, 'emalahleni campus canteen', ' Mandela St, Witbank, Emalahleni, 1034', 827783957, 'emalahlenicanteen@gmail.com', 'canteen.png', 10, '10%', '2021-10-30 12:11:05', '2021-10-30 12:11:05', '07:00:00', '22:00:00', 'Open', 3, '00000000', 'home', 'available', 'meals', 16350, 3),
-(4, 'Sosha canteen', '2 Aubrey Matlakala St, Soshanguve, 0001', 767783911, 'soshacanteen@gmail.com', 'canteen.png', 50, '20%', '2021-10-30 12:11:07', '2021-10-30 12:11:07', '07:00:00', '20:00:00', 'Open', 4, 'soshacampus', 'home', 'available', 'bakery', 1060, 4),
-(5, 'polokwane canteen', '109 Market St, Polokwane Ext 67, Polokwane, 0699', 781355288, 'plkcanteen@gmail.com', 'canteen.png', 0, '10%', '2021-10-30 12:11:09', '2021-10-30 12:11:09', '08:00:00', '20:00:00', 'Open', 5, '00000000', 'home', 'available', 'Drinks', 150800, 5),
-(6, 'Orion Canteen', '7584+GF, Philip Nel Park, Pretoria, 0029', 123824773, 'majedipm@tut.ac.za', 'canteen.png', 0, '11%', '2021-10-30 12:11:10', '2021-10-30 12:11:10', '08:00:00', '20:00:00', 'Open', 6, '000000000', 'home', 'available', 'Drinks', 10050, 6),
-(7, 'Astra Canteen', 'Staatsartillerie Rd, Pretoria West, Pretoria, 0183', 123824100, 'kamogelo@tut.ac.za', 'canteen.png', 0, '12%', '2021-11-10 11:04:10', '2021-11-10 11:04:10', '08:00:00', '21:00:00', 'Open', 7, '00000000', 'home', 'available', 'cooked meals', 1101, 7),
-(8, 'Denise Canteen', 'Staatsrtillerie Rd, Pretoria West, Pretoria, 0183', 723825788, 'dladla@gmail.com', 'canteen.png', 15, '15%', '2021-10-30 12:11:14', '2021-10-30 12:11:14', '08:00:00', '22:00:00', 'Open', 8, '00000000', 'home', 'available', 'Drinks', 1150, 8),
-(9, 'Jonete Canteen', 'Meyer St, Ptchefstroom, 2531', 713825905, 'minjonet157@gmail.com', 'canteen.png', 0, '12%', '2021-10-30 12:11:15', '2021-10-30 12:11:15', '08:00:00', '21:30:00', 'Open', 9, '00000', 'home', 'available', 'cooked meals', 2500, 9),
-(10, 'Nise Canteen', '01 staatsartillerie road, 0183 Pretoria, South Africa', 825938557, 'nisecanteen@gmail.com', 'canteen.png', 0, '16%', '2021-10-30 12:11:17', '2021-10-30 12:11:17', '08:00:00', '20:30:00', 'Open', 10, '0000000000', 'home', 'available', 'cooked meals', 1234, 10);
+INSERT INTO `canteen` (`canteen_id`, `canteen_name`, `canteen_street`, `canteen_city`, `canteen_postal_code`, `canteen_phone`, `canteen_email`, `canteen_logo`, `canteen_comission`, `canteen_created_at`, `canteen_updated_at`, `canteen_opening_time`, `canteen_closing_time`, `canteen_status`, `canteen_ownerid`, `canteen_ownerpassword`, `canteen_delivery_type`, `canteen_earnings`, `zone_id`) VALUES
+(1, 'Corridor cafe', 'zeekoewater 311-JS', 'Emalahleni', '1035', '0817739896', 'coriidor@gmail.com', 'canteen.png', '10%', '2021-11-14 18:11:04', '2021-11-14 18:11:04', '08:00:00', '20:00:00', 1, 1, 'dd4b21e9ef71e1291183a46b913ae6f2', 'delivery', 1050, 1),
+(2, 'Khayalethu Canteen', '17 Dederichs St', 'Emalahleni', '1035', '0767783957', 'khayalethu@gmail.com', 'canteen.png', '10%', '2021-11-14 18:17:38', '2021-11-14 18:17:38', '08:00:00', '22:00:00', 1, 2, 'dd4b21e9ef71e1291183a46b913ae6f2', 'delivery', 500, 2),
+(3, 'emalahleni campus canteen', ' Mandela St', 'Witbank', '1034', '0827783957', 'emalahlenicanteen@gmail.com', 'canteen.png', '10%', '2021-11-14 18:17:40', '2021-11-14 18:17:40', '07:00:00', '22:00:00', 1, 3, 'dd4b21e9ef71e1291183a46b913ae6f2', 'delivery', 16350, 3),
+(4, 'Sosha canteen', '2 Aubrey Matlakala St', 'Pretoria', '0001', '0767783911', 'soshacanteen@gmail.com', 'canteen.png', '20%', '2021-11-14 18:17:43', '2021-11-14 18:17:43', '07:00:00', '20:00:00', 1, 4, 'dd4b21e9ef71e1291183a46b913ae6f2', 'delivery', 1060, 4),
+(5, 'polokwane canteen', '109 Market St', 'Polokwane', '0699', '0781355288', 'plkcanteen@gmail.com', 'canteen.png', '10%', '2021-11-14 18:18:46', '2021-11-14 18:18:46', '08:00:00', '20:00:00', 1, 5, 'dd4b21e9ef71e1291183a46b913ae6f2', 'collection', 0, 5),
+(6, 'Orion Canteen', '7584+GF, Philip Nel Park', 'Pretoria', '0029', '0123824773', 'majedipm@tut.ac.za', 'canteen.png', '11%', '2021-11-14 18:17:49', '2021-11-14 18:17:49', '08:00:00', '20:00:00', 1, 6, 'dd4b21e9ef71e1291183a46b913ae6f2', 'delivery', 0, 4),
+(7, 'Astra Canteen', 'Staatsartillerie Rd', 'Pretoria West', '0183', '0123824100', 'kamogelo@tut.ac.za', 'canteen.png', '12%', '2021-11-14 18:17:52', '2021-11-14 18:17:52', '08:00:00', '21:00:00', 1, 7, 'dd4b21e9ef71e1291183a46b913ae6f2', 'collection', 0, 3),
+(8, 'Denise Canteen', 'Staatsrtillerie Rd', 'Pretoria West', '0183', '0723825788', 'dladla@gmail.com', 'canteen.png', '15%', '2021-11-14 18:17:55', '2021-11-14 18:17:55', '08:00:00', '22:00:00', 1, 8, 'dd4b21e9ef71e1291183a46b913ae6f2', 'delivery', 0, 2),
+(9, 'Jonete Canteen', 'Meyer St', 'Ptchefstroom', '2531', '0713825905', 'minjonet157@gmail.com', 'canteen.png', '12%', '2021-11-14 18:18:01', '2021-11-14 18:18:01', '08:00:00', '21:30:00', 1, 9, 'dd4b21e9ef71e1291183a46b913ae6f2', 'delivery', 0, 2),
+(10, 'Nise Canteen', '01 staatsartillerie road', 'Pretoria', '0183', '0825385507', 'nisecanteen@gmail.com', 'canteen.png', '16%', '2021-11-14 18:18:10', '2021-11-14 18:18:10', '08:00:00', '20:30:00', 1, 10, 'dd4b21e9ef71e1291183a46b913ae6f2', 'delivery', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -84,7 +80,7 @@ CREATE TABLE `canteen_employee` (
   `cant_emp_id` int(11) NOT NULL,
   `cant_emp_f_name` varchar(25) NOT NULL,
   `cant_emp_lname` varchar(25) NOT NULL,
-  `cant_emp_phone` int(9) NOT NULL,
+  `cant_emp_phone` varchar(0) NOT NULL,
   `cant_emp_email` varchar(35) NOT NULL,
   `canteen_id` int(11) NOT NULL,
   `cant_emp_image` varchar(10000) DEFAULT NULL,
@@ -98,16 +94,16 @@ CREATE TABLE `canteen_employee` (
 --
 
 INSERT INTO `canteen_employee` (`cant_emp_id`, `cant_emp_f_name`, `cant_emp_lname`, `cant_emp_phone`, `cant_emp_email`, `canteen_id`, `cant_emp_image`, `cant_emp_password`, `cant_emp_created_at`, `cant_emp_updated_at`) VALUES
-(1, 'Senzo', 'Makoti', 767783957, 'senzo@gmail.com', 1, NULL, 'Makoti587', '2021-10-24 07:50:51', '2021-10-24 07:50:51'),
-(3, 'Lucky', 'Mazi', 827583779, 'luckymazi@gmail.com', 2, NULL, 'luckymazi@gmail.com', '2021-10-24 07:54:21', '2021-10-24 07:54:21'),
-(4, 'Mike', 'Salami', 765879968, 'salami.mike@gmail.com', 3, NULL, 'salami.mike@gmail.com', '2021-10-24 07:54:21', '2021-10-24 07:54:21'),
-(5, 'Mazwi', 'Shabangu', 736458068, 'shabangu@gmail.com', 4, NULL, 'shabangu@gmail.com', '2021-10-24 07:57:23', '2021-10-24 07:57:23'),
-(6, 'Given', 'Dludlu', 667689874, 'givendludlu@gmail.com', 5, NULL, 'dludlu1234', '2021-10-24 07:57:23', '2021-10-24 07:57:23'),
-(7, 'Nomsa', 'Msiza', 739785101, 'nomsa@gmail.com', 6, NULL, 'nomsa@gmail.com', '2021-10-24 08:25:00', '2021-10-24 08:25:00'),
-(8, 'Hlengiwe', 'Masiza', 658367876, 'hlehlemaz@gmail.com', 7, NULL, 'Hlengiwe147', '2021-10-24 08:25:00', '2021-10-24 08:25:00'),
-(9, 'Gratitude', 'Manyaka', 769855456, 'manyakagrats@gmail.com', 8, NULL, 'Gratitude784', '2021-10-24 08:26:44', '2021-10-24 08:26:44'),
-(10, 'Amanda', 'Gali', 764957882, 'amandagali@gmail.com', 9, NULL, 'amandagali123', '2021-10-24 08:49:51', '2021-10-24 08:49:51'),
-(11, 'Alicia', 'Modest', 789495756, 'aliciamodest@gmail.com', 10, NULL, '0789495756', '2021-10-24 08:51:46', '2021-10-24 08:51:46');
+(1, 'Senzo', 'Makoti', '', 'senzo@gmail.com', 1, NULL, 'Makoti587', '2021-10-24 07:50:51', '2021-10-24 07:50:51'),
+(3, 'Lucky', 'Mazi', '', 'luckymazi@gmail.com', 2, NULL, 'luckymazi@gmail.com', '2021-10-24 07:54:21', '2021-10-24 07:54:21'),
+(4, 'Mike', 'Salami', '', 'salami.mike@gmail.com', 3, NULL, 'salami.mike@gmail.com', '2021-10-24 07:54:21', '2021-10-24 07:54:21'),
+(5, 'Mazwi', 'Shabangu', '', 'shabangu@gmail.com', 4, NULL, 'shabangu@gmail.com', '2021-10-24 07:57:23', '2021-10-24 07:57:23'),
+(6, 'Given', 'Dludlu', '', 'givendludlu@gmail.com', 5, NULL, 'dludlu1234', '2021-10-24 07:57:23', '2021-10-24 07:57:23'),
+(7, 'Nomsa', 'Msiza', '', 'nomsa@gmail.com', 6, NULL, 'nomsa@gmail.com', '2021-10-24 08:25:00', '2021-10-24 08:25:00'),
+(8, 'Hlengiwe', 'Masiza', '', 'hlehlemaz@gmail.com', 7, NULL, 'Hlengiwe147', '2021-10-24 08:25:00', '2021-10-24 08:25:00'),
+(9, 'Gratitude', 'Manyaka', '', 'manyakagrats@gmail.com', 8, NULL, 'Gratitude784', '2021-10-24 08:26:44', '2021-10-24 08:26:44'),
+(10, 'Amanda', 'Gali', '', 'amandagali@gmail.com', 9, NULL, 'amandagali123', '2021-10-24 08:49:51', '2021-10-24 08:49:51'),
+(11, 'Alicia', 'Modest', '', 'aliciamodest@gmail.com', 10, NULL, '0789495756', '2021-10-24 08:51:46', '2021-10-24 08:51:46');
 
 -- --------------------------------------------------------
 
@@ -185,7 +181,8 @@ INSERT INTO `customer` (`customer_id`, `customer_f_name`, `customer_l_name`, `cu
 (25, 'Dingaan', 'Letjane', '0764821069', 'velly@gmail.com', 'dd4b21e9ef71e1291183a46b913ae6f2', 0, '', '2021-11-09 09:52:15', '2021-11-09 09:52:15', NULL),
 (26, 'Dingaan', 'Letjane', '0000000000', 'velly@gmail.com', 'f1b708bba17f1ce948dc979f4d7092bc', 0, '', '2021-11-09 10:08:55', '2021-11-09 10:08:55', NULL),
 (27, 'Dingaan', 'Letjane', '00060000000', 'velly@gmail.com', 'f1b708bba17f1ce948dc979f4d7092bc', 0, '', '2021-11-09 12:56:10', '2021-11-09 12:56:10', NULL),
-(28, 'Dingaan', 'Letjane', '000000', 'velly@gmail.com', '29c3eea3f305d6b823f562ac4be35217', 0, '', '2021-11-09 12:57:00', '2021-11-09 12:57:00', NULL);
+(28, 'Dingaan', 'Letjane', '000000', 'velly@gmail.com', '29c3eea3f305d6b823f562ac4be35217', 0, '', '2021-11-09 12:57:00', '2021-11-09 12:57:00', NULL),
+(29, 'Dingaan', 'Letjane', '0764821062', 'vellya@gmail.com', 'e505c7388ed540871a24755de44d6100', 0, '', '2021-11-12 18:00:52', '2021-11-12 18:00:52', NULL);
 
 -- --------------------------------------------------------
 
@@ -314,46 +311,6 @@ INSERT INTO `food` (`food_id`, `food_name`, `food_desc`, `food_image`, `food_pri
 -- --------------------------------------------------------
 
 --
--- Table structure for table `orders`
---
-
-CREATE TABLE `orders` (
-  `order_id` int(20) NOT NULL,
-  `customer_id` int(20) NOT NULL,
-  `cust_address_id` int(20) NOT NULL,
-  `order_amount` decimal(8,0) NOT NULL,
-  `order_payment_status` varchar(255) NOT NULL,
-  `order_status` varchar(255) NOT NULL,
-  `order_total_tax_amount` decimal(8,0) NOT NULL,
-  `order_payment_method` varchar(30) DEFAULT NULL,
-  `order_rans_reference` varchar(30) DEFAULT NULL,
-  `dman_id` int(20) DEFAULT NULL,
-  `order_note` text DEFAULT NULL,
-  `order_type` varchar(255) NOT NULL,
-  `order_created_at` timestamp NULL DEFAULT NULL,
-  `order_updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `orders`
---
-
-INSERT INTO `orders` (`order_id`, `customer_id`, `cust_address_id`, `order_amount`, `order_payment_status`, `order_status`, `order_total_tax_amount`, `order_payment_method`, `order_rans_reference`, `dman_id`, `order_note`, `order_type`, `order_created_at`, `order_updated_at`) VALUES
-(1, 1, 2, '38', 'unpaid', 'pending', '43', 'cash on delivery', '', 1, 'schedule for later', 'delivery', '2021-10-18 01:40:00', '2021-10-18 11:47:00'),
-(2, 3, 6, '31', 'paid', 'processing', '35', 'cash on delivery', '', 4, '', 'takeaway', '2021-10-18 01:40:00', '2021-10-18 11:47:00'),
-(3, 2, 4, '69', 'unpaid', 'pending', '79', 'cash on delivery', '', 8, 'delivery ASAP', 'delivery', '2021-10-18 01:40:00', '2021-10-18 11:47:00'),
-(4, 1, 2, '42', 'unpaid', 'pending', '48', 'cash on delivery', '', 2, 'new complexes', 'delivery', '2021-10-18 01:40:00', '2021-10-18 11:47:00'),
-(5, 3, 6, '69', 'unpaid', 'accepted', '75', 'cash on delivery', '', 3, '', 'delivery', '2021-10-18 01:40:00', '2021-10-18 11:47:00'),
-(6, 2, 4, '40', 'paid', 'accepted', '57', 'cash on delivery', '', 2, '', 'takeaway', '2021-10-18 01:40:00', '2021-10-18 11:47:00'),
-(7, 2, 4, '102', 'unpaid', 'processing', '148', 'cash on delivery', '', 3, '', 'delivery', '2021-10-18 01:40:00', '2021-10-18 11:47:00'),
-(8, 5, 1, '92', 'unpaid', 'accepted', '157', 'cash on delivery', '', 1, '', 'delivery', '2021-10-18 01:40:00', '2021-10-18 11:47:00'),
-(9, 2, 4, '16', 'paid', 'accepted', '23', 'cash on delivery', '', 2, '', 'takeaway', '2021-10-18 01:40:00', '2021-10-18 11:47:00'),
-(10, 2, 4, '16', 'paid', 'accepted', '23', 'cash on delivery', '', 2, '', 'takeaway', '2021-10-18 01:40:00', '2021-10-18 11:47:00'),
-(11, 6, 3, '47', 'paid', 'processing', '50', 'cash on delivery', '', 2, '', 'delivery', '2021-10-18 01:40:00', '2021-10-18 11:47:00');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `orderitem`
 --
 
@@ -394,6 +351,51 @@ INSERT INTO `orderitem` (`orderitem_id`, `order_id`, `food_id`, `orderitem_price
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `orders`
+--
+
+CREATE TABLE `orders` (
+  `order_id` int(20) NOT NULL,
+  `customer_id` int(20) NOT NULL,
+  `canteen_id` int(64) NOT NULL,
+  `cust_address_id` int(20) NOT NULL,
+  `order_amount` decimal(8,0) NOT NULL,
+  `order_payment_status` varchar(255) NOT NULL DEFAULT 'unpaid',
+  `order_status` varchar(255) NOT NULL DEFAULT 'pending',
+  `order_total_tax_amount` decimal(8,0) NOT NULL,
+  `order_payment_method` varchar(30) DEFAULT NULL,
+  `order_rans_reference` varchar(30) DEFAULT NULL,
+  `dman_id` int(20) DEFAULT NULL,
+  `order_note` text DEFAULT NULL,
+  `order_type` varchar(255) NOT NULL,
+  `order_created_at` timestamp NULL DEFAULT current_timestamp(),
+  `order_updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`order_id`, `customer_id`, `canteen_id`, `cust_address_id`, `order_amount`, `order_payment_status`, `order_status`, `order_total_tax_amount`, `order_payment_method`, `order_rans_reference`, `dman_id`, `order_note`, `order_type`, `order_created_at`, `order_updated_at`) VALUES
+(1, 1, 1, 2, '38', 'unpaid', 'pending', '43', 'cash on delivery', '', 1, 'schedule for later', 'delivery', '2021-10-18 01:40:00', '2021-10-18 11:47:00'),
+(2, 3, 1, 6, '31', 'paid', 'processing', '35', 'cash on delivery', '', 4, '', 'takeaway', '2021-10-18 01:40:00', '2021-10-18 11:47:00'),
+(3, 2, 1, 4, '69', 'unpaid', 'pending', '79', 'cash on delivery', '', 8, 'delivery ASAP', 'delivery', '2021-10-18 01:40:00', '2021-10-18 11:47:00'),
+(4, 1, 2, 2, '42', 'unpaid', 'pending', '48', 'cash on delivery', '', 2, 'new complexes', 'delivery', '2021-10-18 01:40:00', '2021-10-18 11:47:00'),
+(5, 3, 1, 6, '69', 'unpaid', 'accepted', '75', 'cash on delivery', '', 3, '', 'delivery', '2021-10-18 01:40:00', '2021-10-18 11:47:00'),
+(6, 2, 2, 4, '40', 'paid', 'accepted', '57', 'cash on delivery', '', 2, '', 'takeaway', '2021-10-18 01:40:00', '2021-10-18 11:47:00'),
+(7, 2, 2, 4, '102', 'unpaid', 'processing', '148', 'cash on delivery', '', 3, '', 'delivery', '2021-10-18 01:40:00', '2021-10-18 11:47:00'),
+(8, 5, 2, 1, '92', 'unpaid', 'accepted', '157', 'cash on delivery', '', 1, '', 'delivery', '2021-10-18 01:40:00', '2021-10-18 11:47:00'),
+(9, 2, 1, 4, '16', 'paid', 'accepted', '23', 'cash on delivery', '', 2, '', 'takeaway', '2021-10-18 01:40:00', '2021-10-18 11:47:00'),
+(10, 2, 1, 4, '16', 'paid', 'accepted', '23', 'cash on delivery', '', 2, '', 'takeaway', '2021-10-18 01:40:00', '2021-10-18 11:47:00'),
+(11, 6, 1, 3, '47', 'paid', 'processing', '50', 'cash on delivery', '', 2, '', 'delivery', '2021-10-18 01:40:00', '2021-10-18 11:47:00'),
+(13, 1, 2, 3, '10', 'unpaid', 'pending', '0', 'Cash on delivery', NULL, NULL, 'Meet me outside', 'Delivery', '2021-11-14 19:33:07', NULL),
+(14, 1, 0, 0, '40', 'unpaid', 'pending', '0', '', '835061431', NULL, 'Meet me outside', '', '2021-11-14 19:46:21', NULL),
+(15, 1, 0, 0, '40', 'unpaid', 'pending', '0', '', '2099777565', NULL, 'Meet me outside', '', '2021-11-14 19:46:35', NULL),
+(16, 1, 1, 3, '40', 'unpaid', 'pending', '0', 'Pay Online', '125239100', NULL, 'Meet me outside', 'Delivery', '2021-11-14 19:53:04', NULL);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `zone`
 --
 
@@ -426,7 +428,8 @@ INSERT INTO `zone` (`zone_id`, `zone_name`, `zone_portal_code`, `zone_status`, `
 -- Indexes for table `canteen`
 --
 ALTER TABLE `canteen`
-  ADD PRIMARY KEY (`canteen_id`);
+  ADD PRIMARY KEY (`canteen_id`),
+  ADD UNIQUE KEY `canteen_email` (`canteen_email`);
 
 --
 -- Indexes for table `canteen_employee`
@@ -471,17 +474,17 @@ ALTER TABLE `food`
   ADD KEY `category_fk` (`category_id`);
 
 --
--- Indexes for table `orders`
---
-ALTER TABLE `orders`
-  ADD PRIMARY KEY (`order_id`);
-
---
 -- Indexes for table `orderitem`
 --
 ALTER TABLE `orderitem`
   ADD PRIMARY KEY (`orderitem_id`),
   ADD KEY `food_id_fk` (`food_id`);
+
+--
+-- Indexes for table `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`order_id`);
 
 --
 -- Indexes for table `zone`
@@ -515,7 +518,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `customer_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `customer_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `customer_address`
@@ -536,16 +539,16 @@ ALTER TABLE `food`
   MODIFY `food_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT for table `orders`
---
-ALTER TABLE `orders`
-  MODIFY `order_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
-
---
 -- AUTO_INCREMENT for table `orderitem`
 --
 ALTER TABLE `orderitem`
   MODIFY `orderitem_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT for table `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `order_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `zone`
