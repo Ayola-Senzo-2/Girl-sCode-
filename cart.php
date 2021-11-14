@@ -68,6 +68,7 @@ if (isset($_POST['remove'])){
                                     cartElement($row['food_image'], $row['food_name'],$row['canteen_name'],$row['food_price'], $row['food_id']);
                                     $total = $total + (int)$row['food_price'];
                                     $items[] = $row['food_name'];
+                                    $canteen_id = $row['canteen_id'];
                                 }
                             }
 
@@ -77,6 +78,7 @@ if (isset($_POST['remove'])){
 
                         $_SESSION['grand_total'] =  $total;
                         $_SESSION['items'] =  $allItems;
+                        $_SESSION['canteen_id'] =  isset($canteen_id);
 
                     }else{
                         echo "<h5>Cart is Empty</h5>";
@@ -118,7 +120,7 @@ if (isset($_POST['remove'])){
                         <form action="http://localhost/cart/checkout.php" name="btn-checkout" method="POST" >
                             <input type="hidden" name="food_items" value="<?php echo $allItems;?>">
                             <input type="hidden" name="food_total" value="<?php echo $total;?>">
-                            <button type="submit" class="btn add-cart-btn" name="checkout">Proceed to checkout</button>                    
+                            <button type="submit" class="btn add-cart-btn" name="proceed-checkout">Proceed to checkout</button>                    
                         </form>
                   </div>
                 </div>

@@ -4,23 +4,44 @@ session_start();
 
 require_once ("php/db.php");
 require_once("./php/component.php");
+require_once("connection.php");
 
 $db = new db();
 
 if(isset($_POST['checkout'])){
-    if(isset($_SESSION['customer_id'])){
-        if(isset($_SESSION['fullAdress'])){
+    if(isset($_SESSION['cust_address_id'])){ // checking if the user has selected a delivery address. 
 
-        } else {
-            echo "<script>alert('Please select a delivery address...');
-            document.location ='cart.php'</script>";
-        }
+    $total_final = $_SESSION['grand_total'];
+    $pmod =$_POST['pmode'];
+    $dtype =$_POST['delivery_type'];
+    $delivey_add_id =$_POST['delivery_address_id'];
+    $customer_id = $_SESSION['customer_id'];
+    $order_total_tax_amount = 0;
+    $order_rans_reference = rand();
+    $order_note = "Meet me outside";
+    $canteen_id = $_SESSION['canteen_id'];
+
+	$query = "INSERT INTO orders (customer_id, canteen_id, cust_address_id, order_amount, order_payment_status,
+        order_payment_method, order_type, order_status, order_total_tax_amount,  order_rans_reference, 
+        dman_id, order_note) 
+              VALUES ('$customer_id','$canteen_id', '$delivey_add_id','$total_final',DEFAULT,'$pmod','$dtype',DEFAULT,
+              '$order_total_tax_amount','$order_rans_reference',NULL, '$order_note')";
+	
+	if(mysqli_query($conn,$query))
+	{
+		echo "Order placed successfully";
+	}
+	else
+	{
+		echo "Error, try again";
+		echo $query;
+	}
 
     } else {
+        echo "<script>alert('Please select a delivery address...');
+        document.location ='cart.php'</script>";
+    }
 
-        echo "<script>alert('Please sign in first...');
-        document.location ='user_auth.php'</script>";
-    }  
 }
 
 
@@ -43,12 +64,13 @@ if(isset($_POST['checkout'])){
 <?php
     require_once ('php/header.php');
 
-    $total = $_SESSION['grand_total'];
-    $items = $_SESSION['items'];
-    $total = number_format($total,2);
-    $fullAddress = $_SESSION['fullAdress'];?>
+$total = $_SESSION['grand_total'];
+$items = $_SESSION['items'];
+$total = number_format($total,2);
+$cust_address_id = $_SESSION['cust_address_id'];
+$fullAddress = $_SESSION['fullAdress'];
 
-
+    ?>
        
     <div class="container confirm-container">
     <div class="row justify-content-center">
@@ -65,24 +87,26 @@ if(isset($_POST['checkout'])){
         <h6 class="lead"><b>Deliver To:</h6>
           <h6><?=$fullAddress;?></h6>
         </div>
-        <form action="#" method="post" id="placeOrder">
+        <form action="" method="POST" id="placeOrder">
         <h6 class="lead"><b>Delivery Options</h6>
         <div class="form-group radio-group">
-            <input type="radio" name="group" value="Delivery"> <span class="">Delivery</span>
+            <input type="radio" name="delivery_type" value=""> Choose Delivery Type
+            <input type="radio" name="delivery_type" value="Delivery"> Delivery
             <br>
-            <input type="radio" name="group" value="Collection" > Collection
+            <input type="radio" name="delivery_type" value="Collection" > Collection
         </div>   
-          <input type="hidden" name="products" value="food">
-          <input type="hidden" name="grand_total" value="44">
+          <input type="hidden" name="delivery_address_id" value="<?= $cust_address_id;?>">
+          <input type="hidden" name="total" value="<?=$total;?>">
           <h6 class="">Select Payment Mode</h6>
           <div class="form-group">
             <select name="pmode" class="form-control">
-              <option value="cod">Cash On Delivery</option>
-              <option value="cod">Pay Online</option>
+              <option value="">Choose Payment Type</option>
+              <option value="Cash on delivery">Cash On Delivery</option>
+              <option value="Pay Online">Pay Online</option>
             </select>
           </div>
           <div class="form-group">
-            <input type="submit" name="submit" value="Confirm Order" class="btn-c text-center">
+            <input type="submit" name="checkout" value="Confirm Order" class="btn-c text-center">
           </div>
         </form>
       </div>

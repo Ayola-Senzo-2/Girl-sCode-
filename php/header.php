@@ -55,6 +55,7 @@ while ($row = mysqli_fetch_assoc($result)){
     $_SESSION['street'] = $row['cust_street'];
     $_SESSION['portal_code'] = $row['cust_add_portalcode'];
     $_SESSION['fullAdress'] = $row['cust_street'].", ".$row['cust_add_city'].", ".$row['cust_add_portalcode'];
+    $_SESSION['cust_address_id'] = $row['cust_address_id'];
 
     }
  else 
