@@ -40,8 +40,14 @@ if(isset($_SESSION['customer_id'])){
     else 
      $selval='%';
 
+     $result = $db->getCustomerAddress($customer_id);
+
+     if(!$result){
+
+     } else {
+
 echo "<select name=cust_address_id onchange='form1.submit()'>";
-$result = $db->getCustomerAddress($customer_id);
+
 while ($row = mysqli_fetch_assoc($result)){
     if ($selval==$row['cust_address_id']){
     $selsel=" Selected";
@@ -58,6 +64,8 @@ while ($row = mysqli_fetch_assoc($result)){
 }
 
 echo"</select>";
+
+     }
 
 } else{
 

@@ -11,8 +11,8 @@ $db = new db();
 //sign in
 if(isset($_POST['Sign_InBtn'])) {
 
-    $phone = mysqli_real_escape_string($conn,$_POST["phone"]);
-    $password = mysqli_real_escape_string($conn,$_POST["password"]);
+    $phone = filter_input(INPUT_POST,'phone');
+    $password = filter_input(INPUT_POST, 'password');
     $password = md5($password);
 
 
@@ -34,11 +34,11 @@ if(isset($_POST['Sign_InBtn'])) {
     //sign up 
     if(isset($_POST["Sign_UpBtn"])) {
 		
-        $firstname =  mysqli_real_escape_string($conn,$_POST["firstname"]);
-        $lastname =   mysqli_real_escape_string($conn,$_POST["lastname"]);
-        $email= mysqli_real_escape_string($conn,$_POST["email"]);
-        $phone = mysqli_real_escape_string($conn,$_POST["phone"]);
-        $password = mysqli_real_escape_string($conn,$_POST["password"]);
+        $firstname =  filter_input(INPUT_POST, 'firstname');
+        $lastname =   filter_input(INPUT_POST, 'lastname');
+        $email= filter_input(INPUT_POST, 'email');
+        $phone = filter_input(INPUT_POST, 'phone');
+        $password =filter_input(INPUT_POST, 'password');
     
         $password = md5($password);
     
