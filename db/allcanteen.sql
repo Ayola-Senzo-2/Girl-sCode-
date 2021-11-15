@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 14, 2021 at 08:58 PM
+-- Generation Time: Nov 15, 2021 at 10:14 AM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.6
 
@@ -68,7 +68,17 @@ INSERT INTO `canteen` (`canteen_id`, `canteen_name`, `canteen_street`, `canteen_
 (7, 'Astra Canteen', 'Staatsartillerie Rd', 'Pretoria West', '0183', '0123824100', 'kamogelo@tut.ac.za', 'canteen.png', '12%', '2021-11-14 18:17:52', '2021-11-14 18:17:52', '08:00:00', '21:00:00', 1, 7, 'dd4b21e9ef71e1291183a46b913ae6f2', 'collection', 0, 3),
 (8, 'Denise Canteen', 'Staatsrtillerie Rd', 'Pretoria West', '0183', '0723825788', 'dladla@gmail.com', 'canteen.png', '15%', '2021-11-14 18:17:55', '2021-11-14 18:17:55', '08:00:00', '22:00:00', 1, 8, 'dd4b21e9ef71e1291183a46b913ae6f2', 'delivery', 0, 2),
 (9, 'Jonete Canteen', 'Meyer St', 'Ptchefstroom', '2531', '0713825905', 'minjonet157@gmail.com', 'canteen.png', '12%', '2021-11-14 18:18:01', '2021-11-14 18:18:01', '08:00:00', '21:30:00', 1, 9, 'dd4b21e9ef71e1291183a46b913ae6f2', 'delivery', 0, 2),
-(10, 'Nise Canteen', '01 staatsartillerie road', 'Pretoria', '0183', '0825385507', 'nisecanteen@gmail.com', 'canteen.png', '16%', '2021-11-14 18:18:10', '2021-11-14 18:18:10', '08:00:00', '20:30:00', 1, 10, 'dd4b21e9ef71e1291183a46b913ae6f2', 'delivery', 0, 1);
+(10, 'Dingaan Canteen', '01 staatsartillerie road', 'Pretoria', '0183', '0825386507', 'dingaan@gmail.com', 'canteen.png', '16%', '2021-11-14 18:18:10', '2021-11-14 18:18:10', '08:00:00', '20:30:00', 1, 10, 'dd4b21e9ef71e1291183a46b913ae6f2', 'delivery', 0, 1),
+(11, 'Mbombela cafe', 'zeekoewater 311-JS', 'Emalahleni', '1035', '0817789896', 'mbombela@gmail.com', 'canteen.png', '10%', '2021-11-14 18:11:04', '2021-11-14 18:11:04', '08:00:00', '20:00:00', 1, 1, 'dd4b21e9ef71e1291183a46b913ae6f2', 'delivery', 1050, 1),
+(12, 'Simile Canteen', '17 Dederichs St', 'Emalahleni', '1035', '0767783457', 'simile@gmail.com', 'canteen.png', '10%', '2021-11-14 18:17:38', '2021-11-14 18:17:38', '08:00:00', '22:00:00', 1, 2, 'dd4b21e9ef71e1291183a46b913ae6f2', 'delivery', 500, 2),
+(13, 'HotDog canteen', ' Mandela St', 'Witbank', '1034', '0827789357', 'hotdog@gmail.com', 'canteen.png', '10%', '2021-11-14 18:17:40', '2021-11-14 18:17:40', '07:00:00', '22:00:00', 1, 3, 'dd4b21e9ef71e1291183a46b913ae6f2', 'delivery', 16350, 3),
+(14, 'Tasy canteen', '2 Aubrey Matlakala St', 'Pretoria', '0001', '0707783911', 'tasy@gmail.com', 'canteen.png', '20%', '2021-11-14 18:17:43', '2021-11-14 18:17:43', '07:00:00', '20:00:00', 1, 4, 'dd4b21e9ef71e1291183a46b913ae6f2', 'delivery', 1060, 4),
+(15, 'Rev canteen', '109 Market St', 'Polokwane', '0699', '0781353458', 'reva@gmail.com', 'canteen.png', '10%', '2021-11-14 18:18:46', '2021-11-14 18:18:46', '08:00:00', '20:00:00', 1, 5, 'dd4b21e9ef71e1291183a46b913ae6f2', 'collection', 0, 5),
+(16, 'Johns Canteen', '7584+GF, Philip Nel Park', 'Pretoria', '0029', '0134652477', 'johnsm@tut.ac.za', 'canteen.png', '11%', '2021-11-14 18:17:49', '2021-11-14 18:17:49', '08:00:00', '20:00:00', 1, 6, 'dd4b21e9ef71e1291183a46b913ae6f2', 'delivery', 0, 4),
+(17, 'Bun Canteen', 'Staatsartillerie Rd', 'Pretoria West', '0183', '0123827810', 'buncanteen@tut.ac.za', 'canteen.png', '12%', '2021-11-14 18:17:52', '2021-11-14 18:17:52', '08:00:00', '21:00:00', 1, 7, 'dd4b21e9ef71e1291183a46b913ae6f2', 'collection', 0, 3),
+(18, 'Mathews Canteen', 'Staatsrtillerie Rd', 'Pretoria West', '0183', '0633825788', 'mathews@gmail.com', 'canteen.png', '15%', '2021-11-14 18:17:55', '2021-11-14 18:17:55', '08:00:00', '22:00:00', 1, 8, 'dd4b21e9ef71e1291183a46b913ae6f2', 'delivery', 0, 2),
+(19, 'BigFood Canteen', 'Meyer St', 'Ptchefstroom', '2531', '0851382590', 'bigfood@gmail.com', 'canteen.png', '12%', '2021-11-14 18:18:01', '2021-11-14 18:18:01', '08:00:00', '21:30:00', 1, 9, 'dd4b21e9ef71e1291183a46b913ae6f2', 'delivery', 0, 2),
+(20, 'Nation Canteen', '01 staatsartillerie road', 'Pretoria', '0183', '0895385507', 'nationcanteen@gmail.com', 'canteen.png', '16%', '2021-11-14 18:18:10', '2021-11-14 18:18:10', '08:00:00', '20:30:00', 1, 10, 'dd4b21e9ef71e1291183a46b913ae6f2', 'delivery', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -80,7 +90,7 @@ CREATE TABLE `canteen_employee` (
   `cant_emp_id` int(11) NOT NULL,
   `cant_emp_f_name` varchar(25) NOT NULL,
   `cant_emp_lname` varchar(25) NOT NULL,
-  `cant_emp_phone` varchar(0) NOT NULL,
+  `cant_emp_phone` varchar(10) NOT NULL,
   `cant_emp_email` varchar(35) NOT NULL,
   `canteen_id` int(11) NOT NULL,
   `cant_emp_image` varchar(10000) DEFAULT NULL,
@@ -94,16 +104,16 @@ CREATE TABLE `canteen_employee` (
 --
 
 INSERT INTO `canteen_employee` (`cant_emp_id`, `cant_emp_f_name`, `cant_emp_lname`, `cant_emp_phone`, `cant_emp_email`, `canteen_id`, `cant_emp_image`, `cant_emp_password`, `cant_emp_created_at`, `cant_emp_updated_at`) VALUES
-(1, 'Senzo', 'Makoti', '', 'senzo@gmail.com', 1, NULL, 'Makoti587', '2021-10-24 07:50:51', '2021-10-24 07:50:51'),
-(3, 'Lucky', 'Mazi', '', 'luckymazi@gmail.com', 2, NULL, 'luckymazi@gmail.com', '2021-10-24 07:54:21', '2021-10-24 07:54:21'),
-(4, 'Mike', 'Salami', '', 'salami.mike@gmail.com', 3, NULL, 'salami.mike@gmail.com', '2021-10-24 07:54:21', '2021-10-24 07:54:21'),
-(5, 'Mazwi', 'Shabangu', '', 'shabangu@gmail.com', 4, NULL, 'shabangu@gmail.com', '2021-10-24 07:57:23', '2021-10-24 07:57:23'),
-(6, 'Given', 'Dludlu', '', 'givendludlu@gmail.com', 5, NULL, 'dludlu1234', '2021-10-24 07:57:23', '2021-10-24 07:57:23'),
-(7, 'Nomsa', 'Msiza', '', 'nomsa@gmail.com', 6, NULL, 'nomsa@gmail.com', '2021-10-24 08:25:00', '2021-10-24 08:25:00'),
-(8, 'Hlengiwe', 'Masiza', '', 'hlehlemaz@gmail.com', 7, NULL, 'Hlengiwe147', '2021-10-24 08:25:00', '2021-10-24 08:25:00'),
-(9, 'Gratitude', 'Manyaka', '', 'manyakagrats@gmail.com', 8, NULL, 'Gratitude784', '2021-10-24 08:26:44', '2021-10-24 08:26:44'),
-(10, 'Amanda', 'Gali', '', 'amandagali@gmail.com', 9, NULL, 'amandagali123', '2021-10-24 08:49:51', '2021-10-24 08:49:51'),
-(11, 'Alicia', 'Modest', '', 'aliciamodest@gmail.com', 10, NULL, '0789495756', '2021-10-24 08:51:46', '2021-10-24 08:51:46');
+(1, 'Senzo', 'Makoti', '0765432322', 'senzo@gmail.com', 1, NULL, 'dd4b21e9ef71e1291183a46b913ae6f2', '2021-10-24 07:50:51', '2021-10-24 07:50:51'),
+(3, 'Lucky', 'Mazi', '0765432324', 'luckymazi@gmail.com', 2, NULL, 'dd4b21e9ef71e1291183a46b913ae6f2', '2021-10-24 07:54:21', '2021-10-24 07:54:21'),
+(4, 'Mike', 'Salami', '0765433322', 'salami.mike@gmail.com', 3, NULL, 'dd4b21e9ef71e1291183a46b913ae6f2', '2021-10-24 07:54:21', '2021-10-24 07:54:21'),
+(5, 'Mazwi', 'Shabangu', '0735432322', 'shabangu@gmail.com', 4, NULL, 'dd4b21e9ef71e1291183a46b913ae6f2', '2021-10-24 07:57:23', '2021-10-24 07:57:23'),
+(6, 'Given', 'Dludlu', '0643229121', 'givendludlu@gmail.com', 5, NULL, 'dd4b21e9ef71e1291183a46b913ae6f2', '2021-10-24 07:57:23', '2021-10-24 07:57:23'),
+(7, 'Nomsa', 'Msiza', '0763921232', 'nomsa@gmail.com', 6, NULL, 'dd4b21e9ef71e1291183a46b913ae6f2', '2021-10-24 08:25:00', '2021-10-24 08:25:00'),
+(8, 'Hlengiwe', 'Masiza', '0821238921', 'hlehlemaz@gmail.com', 7, NULL, 'dd4b21e9ef71e1291183a46b913ae6f2', '2021-10-24 08:25:00', '2021-10-24 08:25:00'),
+(9, 'Gratitude', 'Manyaka', '0723438121', 'manyakagrats@gmail.com', 8, NULL, 'dd4b21e9ef71e1291183a46b913ae6f2', '2021-10-24 08:26:44', '2021-10-24 08:26:44'),
+(10, 'Amanda', 'Gali', '0672819212', 'amandagali@gmail.com', 9, NULL, 'dd4b21e9ef71e1291183a46b913ae6f2', '2021-10-24 08:49:51', '2021-10-24 08:49:51'),
+(11, 'Alicia', 'Modest', '0675583932', 'aliciamodest@gmail.com', 10, NULL, 'dd4b21e9ef71e1291183a46b913ae6f2', '2021-10-24 08:51:46', '2021-10-24 08:51:46');
 
 -- --------------------------------------------------------
 
@@ -158,31 +168,31 @@ CREATE TABLE `customer` (
 
 INSERT INTO `customer` (`customer_id`, `customer_f_name`, `customer_l_name`, `customer_phone`, `customer_email`, `customer_password`, `customer_order_count`, `customer_interest`, `customer_created_at`, `customer_update_at`, `customer_image`) VALUES
 (1, 'Dingaan', 'Letjane', '0764821064', 'velly.dingaan17@gmail.com', 'dd4b21e9ef71e1291183a46b913ae6f2', 0, 'fast food', '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'customer.png'),
-(2, 'Sam', 'Ndlovu', '333', 'samndlovu@gmail.com', '$2y$10$mokD0e/GQUXsPAcT9vDlvujHxD4cIiLibL3X.IWkUNwssP/4/GIhy', 0, 'fast food', '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'customer.png'),
-(3, 'Thami', 'Mogane', '445677', 'thamimogane@gmail.com', '$2y$10$mokD0e/GQUXsPAcT9vDlvujHxD4cIiLibL3X.IWkUNwssP/4/GIhy', 0, 'fast food', '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'customer.png'),
-(4, 'Mathew', 'Mlimi', '67865', 'mathewbow@gmail.com', '$2y$10$mokD0e/GQUXsPAcT9vDlvujHxD4cIiLibL3X.IWkUNwssP/4/GIhy', 0, 'fast food', '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'customer.png'),
-(5, 'Smanga', 'Letjane', '67896', 'smangaletjane@gmail.com', '$2y$10$mokD0e/GQUXsPAcT9vDlvujHxD4cIiLibL3X.IWkUNwssP/4/GIhy', 0, 'fast food', '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'customer.png'),
-(6, 'Jabulani', 'Smith', '4424556', 'jabulasm@gmail.com', '$2y$10$mokD0e/GQUXsPAcT9vDlvujHxD4cIiLibL3X.IWkUNwssP/4/GIhy', 0, 'fast food', '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'customer.png'),
-(7, 'Deon', 'Nkosi', '677894233', 'deonnkosi@gmail.com', '$2y$10$mokD0e/GQUXsPAcT9vDlvujHxD4cIiLibL3X.IWkUNwssP/4/GIhy', 0, 'fast food', '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'customer.png'),
-(8, 'Olgah', 'Mhulu', '4353323', 'olgah344@gmail.com', '$2y$10$mokD0e/GQUXsPAcT9vDlvujHxD4cIiLibL3X.IWkUNwssP/4/GIhy', 0, 'fast food', '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'customer.png'),
-(9, 'Vukes', 'Vulani', '3545465', 'vukes384@gmail.com', '$2y$10$mokD0e/GQUXsPAcT9vDlvujHxD4cIiLibL3X.IWkUNwssP/4/GIhy', 0, 'fast food', '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'customer.png'),
-(10, 'Thabang', 'Ngema', '54544', 'thabanga457@gmail.com', '$2y$10$mokD0e/GQUXsPAcT9vDlvujHxD4cIiLibL3X.IWkUNwssP/4/GIhy', 0, 'fast food', '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'customer.png'),
-(11, 'Sbusiso', 'Mthabi', '4546577', 'sbumthabi@gmail.com', '$2y$10$mokD0e/GQUXsPAcT9vDlvujHxD4cIiLibL3X.IWkUNwssP/4/GIhy', 0, 'fast food', '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'customer.png'),
-(12, 'Aletta', 'Nkosi', '5445766', 'alettankosi@gmail.com', '$2y$10$mokD0e/GQUXsPAcT9vDlvujHxD4cIiLibL3X.IWkUNwssP/4/GIhy', 0, 'fast food', '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'customer.png'),
-(13, 'Zeno', 'Khumalo', '323232', 'zenk3453@gmail.com', '$2y$10$mokD0e/GQUXsPAcT9vDlvujHxD4cIiLibL3X.IWkUNwssP/4/GIhy', 0, 'fast food', '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'customer.png'),
-(14, 'Musa', 'Khumalo', '11323344', 'musik984@gmail.com', '$2y$10$mokD0e/GQUXsPAcT9vDlvujHxD4cIiLibL3X.IWkUNwssP/4/GIhy', 0, 'fast food', '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'customer.png'),
-(15, 'Sandra', 'Sandra', '6565775', 'sandra374@gmail.com', '$2y$10$mokD0e/GQUXsPAcT9vDlvujHxD4cIiLibL3X.IWkUNwssP/4/GIhy', 0, 'fast food', '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'customer.png'),
-(16, 'Sli', 'Nkosi', '545457', 'sli4492@gmail.com', '$2y$10$mokD0e/GQUXsPAcT9vDlvujHxD4cIiLibL3X.IWkUNwssP/4/GIhy', 0, 'fast food', '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'customer.png'),
-(17, 'Dennis', 'Smith', '434232', 'dennis9021@gmail.com', '$2y$10$mokD0e/GQUXsPAcT9vDlvujHxD4cIiLibL3X.IWkUNwssP/4/GIhy', 0, 'fast food', '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'customer.png'),
-(18, 'Jack', 'Mlimi', '56565', 'jackmlimi34@gmail.com', '$2y$10$mokD0e/GQUXsPAcT9vDlvujHxD4cIiLibL3X.IWkUNwssP/4/GIhy', 0, 'fast food', '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'customer.png'),
-(19, 'Fanana', 'John', '556778', 'fanajohn@gmail.com', '$2y$10$mokD0e/GQUXsPAcT9vDlvujHxD4cIiLibL3X.IWkUNwssP/4/GIhy', 0, 'fast food', '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'customer.png'),
-(20, 'Kenny', 'Mnisi', '56555343', 'mkenny34@gmail.com', '$2y$10$mokD0e/GQUXsPAcT9vDlvujHxD4cIiLibL3X.IWkUNwssP/4/GIhy', 0, 'fast food', '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'customer.png'),
-(24, 'Dingaan', 'Letjane', '76', 'velly@gmail.com', 'f1b708bba17f1ce948dc979f4d7092bc', 0, '', '2021-11-09 09:42:51', '2021-11-09 09:42:51', NULL),
+(2, 'Sam', 'Ndlovu', '333', 'samndlovu@gmail.com', 'dd4b21e9ef71e1291183a46b913ae6f2', 0, 'fast food', '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'customer.png'),
+(3, 'Thami', 'Mogane', '445677', 'thamimogane@gmail.com', 'dd4b21e9ef71e1291183a46b913ae6f2', 0, 'fast food', '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'customer.png'),
+(4, 'Mathew', 'Mlimi', '67865', 'mathewbow@gmail.com', 'dd4b21e9ef71e1291183a46b913ae6f2', 0, 'fast food', '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'customer.png'),
+(5, 'Smanga', 'Letjane', '67896', 'smangaletjane@gmail.com', 'dd4b21e9ef71e1291183a46b913ae6f2', 0, 'fast food', '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'customer.png'),
+(6, 'Jabulani', 'Smith', '4424556', 'jabulasm@gmail.com', 'dd4b21e9ef71e1291183a46b913ae6f2', 0, 'fast food', '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'customer.png'),
+(7, 'Deon', 'Nkosi', '677894233', 'deonnkosi@gmail.com', 'dd4b21e9ef71e1291183a46b913ae6f2', 0, 'fast food', '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'customer.png'),
+(8, 'Olgah', 'Mhulu', '4353323', 'olgah344@gmail.com', 'dd4b21e9ef71e1291183a46b913ae6f2', 0, 'fast food', '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'customer.png'),
+(9, 'Vukes', 'Vulani', '3545465', 'vukes384@gmail.com', 'dd4b21e9ef71e1291183a46b913ae6f2', 0, 'fast food', '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'customer.png'),
+(10, 'Thabang', 'Ngema', '54544', 'thabanga457@gmail.com', 'dd4b21e9ef71e1291183a46b913ae6f2', 0, 'fast food', '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'customer.png'),
+(11, 'Sbusiso', 'Mthabi', '4546577', 'sbumthabi@gmail.com', 'dd4b21e9ef71e1291183a46b913ae6f2', 0, 'fast food', '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'customer.png'),
+(12, 'Aletta', 'Nkosi', '5445766', 'alettankosi@gmail.com', 'dd4b21e9ef71e1291183a46b913ae6f2', 0, 'fast food', '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'customer.png'),
+(13, 'Zeno', 'Khumalo', '323232', 'zenk3453@gmail.com', 'dd4b21e9ef71e1291183a46b913ae6f2', 0, 'fast food', '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'customer.png'),
+(14, 'sasa', 'Khumalo', '11323344', 'musik984@gmail.com', 'dd4b21e9ef71e1291183a46b913ae6f2', 0, 'fast food', '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'customer.png'),
+(15, 'Sandra', 'Sandra', '6565775', 'sandra374@gmail.com', 'dd4b21e9ef71e1291183a46b913ae6f2', 0, 'fast food', '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'customer.png'),
+(16, 'Sli', 'Nkosi', '545457', 'sli4492@gmail.com', 'dd4b21e9ef71e1291183a46b913ae6f2', 0, 'fast food', '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'customer.png'),
+(17, 'Dennis', 'Smith', '434232', 'dennis9021@gmail.com', 'dd4b21e9ef71e1291183a46b913ae6f2', 0, 'fast food', '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'customer.png'),
+(18, 'Jack', 'Mlimi', '56565', 'jackmlimi34@gmail.com', 'dd4b21e9ef71e1291183a46b913ae6f2', 0, 'fast food', '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'customer.png'),
+(19, 'Fanana', 'John', '556778', 'fanajohn@gmail.com', 'dd4b21e9ef71e1291183a46b913ae6f2', 0, 'fast food', '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'customer.png'),
+(20, 'Kenny', 'Mnisi', '56555343', 'mkenny34@gmail.com', 'dd4b21e9ef71e1291183a46b913ae6f2', 0, 'fast food', '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'customer.png'),
+(24, 'Dingaan', 'Letjane', '76', 'velly@gmail.com', 'dd4b21e9ef71e1291183a46b913ae6f2', 0, '', '2021-11-09 09:42:51', '2021-11-09 09:42:51', NULL),
 (25, 'Dingaan', 'Letjane', '0764821069', 'velly@gmail.com', 'dd4b21e9ef71e1291183a46b913ae6f2', 0, '', '2021-11-09 09:52:15', '2021-11-09 09:52:15', NULL),
-(26, 'Dingaan', 'Letjane', '0000000000', 'velly@gmail.com', 'f1b708bba17f1ce948dc979f4d7092bc', 0, '', '2021-11-09 10:08:55', '2021-11-09 10:08:55', NULL),
-(27, 'Dingaan', 'Letjane', '00060000000', 'velly@gmail.com', 'f1b708bba17f1ce948dc979f4d7092bc', 0, '', '2021-11-09 12:56:10', '2021-11-09 12:56:10', NULL),
-(28, 'Dingaan', 'Letjane', '000000', 'velly@gmail.com', '29c3eea3f305d6b823f562ac4be35217', 0, '', '2021-11-09 12:57:00', '2021-11-09 12:57:00', NULL),
-(29, 'Dingaan', 'Letjane', '0764821062', 'vellya@gmail.com', 'e505c7388ed540871a24755de44d6100', 0, '', '2021-11-12 18:00:52', '2021-11-12 18:00:52', NULL);
+(26, 'Dingaan', 'Letjane', '0000000000', 'velly@gmail.com', 'dd4b21e9ef71e1291183a46b913ae6f2', 0, '', '2021-11-09 10:08:55', '2021-11-09 10:08:55', NULL),
+(27, 'Dingaan', 'Letjane', '00060000000', 'velly@gmail.com', 'dd4b21e9ef71e1291183a46b913ae6f2', 0, '', '2021-11-09 12:56:10', '2021-11-09 12:56:10', NULL),
+(28, 'Dingaan', 'Letjane', '000000', 'velly@gmail.com', 'dd4b21e9ef71e1291183a46b913ae6f2', 0, '', '2021-11-09 12:57:00', '2021-11-09 12:57:00', NULL),
+(29, 'Dingaan', 'Letjane', '0764821062', 'vellya@gmail.com', 'dd4b21e9ef71e1291183a46b913ae6f2', 0, '', '2021-11-12 18:00:52', '2021-11-12 18:00:52', NULL);
 
 -- --------------------------------------------------------
 
@@ -247,26 +257,26 @@ CREATE TABLE `delivery_man` (
 --
 
 INSERT INTO `delivery_man` (`dman_id`, `dman_f_name`, `dman_l_name`, `dman_phone`, `dman_email`, `dman_password`, `dman_identity_number`, `dman_identity_type`, `dman_status`, `dman_active`, `dman_earnings`, `dman_current_orders`, `dman_created_at`, `dman_update_at`, `dman_image`) VALUES
-(1, 'Senzo', 'Mngcaleka', 100000000, 'senzo@gmail.com', '$2y$10$mokD0e/GQUXsPAcT9vDlvujHxD4cIiLibL3X.IWkUNwssP/4/GIhy', '1234567891012', 'ID Document', 1, 1, 0, 0, '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'dman.png'),
-(2, 'Natasha', 'Bloom', 100000000, 'Natasha@gmail.com', '$2y$10$mokD0e/GQUXsPAcT9vDlvujHxD4cIiLibL3X.IWkUNwssP/4/GIhy', '1234567891012', 'ID Document', 1, 1, 0, 0, '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'dman.png'),
-(3, 'Ephraim', 'Martin', 100000000, 'Ephraim@gmail.com', '$2y$10$mokD0e/GQUXsPAcT9vDlvujHxD4cIiLibL3X.IWkUNwssP/4/GIhy', '1234567891012', 'ID Document', 1, 1, 0, 0, '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'dman.png'),
-(4, 'Branden', 'Schofield', 100000000, 'Branden@gmail.com', '$2y$10$mokD0e/GQUXsPAcT9vDlvujHxD4cIiLibL3X.IWkUNwssP/4/GIhy', '1234567891012', 'ID Document', 1, 1, 0, 0, '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'dman.png'),
-(5, 'Maggie', 'Gibbs', 100000000, 'Maggie@gmail.com', '$2y$10$mokD0e/GQUXsPAcT9vDlvujHxD4cIiLibL3X.IWkUNwssP/4/GIhy', '1234567891012', 'ID Document', 1, 1, 0, 0, '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'dman.png'),
-(6, 'Ray', 'Farley', 100000000, 'Ray@gmail.com', '$2y$10$mokD0e/GQUXsPAcT9vDlvujHxD4cIiLibL3X.IWkUNwssP/4/GIhy', '1234567891012', 'ID Document', 1, 1, 0, 0, '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'dman.png'),
-(7, 'Annabell', 'Larsen', 100000000, 'Annabell@gmail.com', '$2y$10$mokD0e/GQUXsPAcT9vDlvujHxD4cIiLibL3X.IWkUNwssP/4/GIhy', '1234567891012', 'ID Document', 1, 1, 0, 0, '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'dman.png'),
-(8, 'Ammar', 'Bruce', 100000000, 'Ammar@gmail.com', '$2y$10$mokD0e/GQUXsPAcT9vDlvujHxD4cIiLibL3X.IWkUNwssP/4/GIhy', '1234567891012', 'ID Document', 1, 1, 0, 0, '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'dman.png'),
-(9, 'Jordi', 'Stanley', 100000000, 'Jordi@gmail.com', '$2y$10$mokD0e/GQUXsPAcT9vDlvujHxD4cIiLibL3X.IWkUNwssP/4/GIhy', '1234567891012', 'ID Document', 1, 1, 0, 0, '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'dman.png'),
-(10, 'Haleema', 'Hardin', 100000000, 'Haleema@gmail.com', '$2y$10$mokD0e/GQUXsPAcT9vDlvujHxD4cIiLibL3X.IWkUNwssP/4/GIhy', '1234567891012', 'ID Document', 1, 1, 0, 0, '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'dman.png'),
-(11, 'Karl ', 'Monroe', 100000000, 'Karl@gmail.com', '$2y$10$mokD0e/GQUXsPAcT9vDlvujHxD4cIiLibL3X.IWkUNwssP/4/GIhy', '1234567891012', 'ID Document', 1, 1, 0, 0, '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'dman.png'),
-(12, 'Anjali', 'Vu', 100000000, 'Anjali@gmail.com', '$2y$10$mokD0e/GQUXsPAcT9vDlvujHxD4cIiLibL3X.IWkUNwssP/4/GIhy', '1234567891012', 'ID Document', 1, 1, 0, 0, '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'dman.png'),
-(13, 'Gregor', 'Read', 100000000, 'Gregor@gmail.com', '$2y$10$mokD0e/GQUXsPAcT9vDlvujHxD4cIiLibL3X.IWkUNwssP/4/GIhy', '1234567891012', 'ID Document', 1, 1, 0, 0, '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'dman.png'),
-(14, 'Randy', 'Ware', 100000000, 'Randy@gmail.com', '$2y$10$mokD0e/GQUXsPAcT9vDlvujHxD4cIiLibL3X.IWkUNwssP/4/GIhy', '1234567891012', 'ID Document', 1, 1, 0, 0, '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'dman.png'),
-(15, 'Kitty', 'Bannister', 100000000, 'Kitty@gmail.com', '$2y$10$mokD0e/GQUXsPAcT9vDlvujHxD4cIiLibL3X.IWkUNwssP/4/GIhy', '1234567891012', 'ID Document', 1, 1, 0, 0, '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'dman.png'),
-(16, 'Ava-Grace', 'Knapp', 100000000, 'Knapp@gmail.com', '$2y$10$mokD0e/GQUXsPAcT9vDlvujHxD4cIiLibL3X.IWkUNwssP/4/GIhy', '1234567891012', 'ID Document', 1, 1, 0, 0, '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'dman.png'),
-(17, 'Diogo', 'Lancaster', 100000000, 'Lancaster@gmail.com', '$2y$10$mokD0e/GQUXsPAcT9vDlvujHxD4cIiLibL3X.IWkUNwssP/4/GIhy', '1234567891012', 'ID Document', 1, 1, 0, 0, '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'dman.png'),
-(18, 'Tymon', 'Gibbons', 100000000, 'Gibbons@gmail.com', '$2y$10$mokD0e/GQUXsPAcT9vDlvujHxD4cIiLibL3X.IWkUNwssP/4/GIhy', '1234567891012', 'ID Document', 1, 1, 0, 0, '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'dman.png'),
-(19, 'Cayden', 'Doyle', 100000000, 'Doyle@gmail.com', '$2y$10$mokD0e/GQUXsPAcT9vDlvujHxD4cIiLibL3X.IWkUNwssP/4/GIhy', '1234567891012', 'ID Document', 1, 1, 0, 0, '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'dman.png'),
-(20, 'Serena', 'Stubbs', 100000000, 'stubbs@gmail.com', '$2y$10$mokD0e/GQUXsPAcT9vDlvujHxD4cIiLibL3X.IWkUNwssP/4/GIhy', '1234567891012', 'ID Document', 1, 1, 0, 0, '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'dman.png');
+(1, 'Senzo', 'Mngcaleka', 100000000, 'senzo@gmail.com', 'dd4b21e9ef71e1291183a46b913ae6f2', '1234567891012', 'ID Document', 1, 1, 0, 0, '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'dman.png'),
+(2, 'Natasha', 'Bloom', 100000000, 'Natasha@gmail.com', 'dd4b21e9ef71e1291183a46b913ae6f2', '1234567891012', 'ID Document', 1, 1, 0, 0, '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'dman.png'),
+(3, 'Ephraim', 'Martin', 100000000, 'Ephraim@gmail.com', 'dd4b21e9ef71e1291183a46b913ae6f2', '1234567891012', 'ID Document', 1, 1, 0, 0, '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'dman.png'),
+(4, 'Branden', 'Schofield', 100000000, 'Branden@gmail.com', 'dd4b21e9ef71e1291183a46b913ae6f2', '1234567891012', 'ID Document', 1, 1, 0, 0, '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'dman.png'),
+(5, 'Maggie', 'Gibbs', 100000000, 'Maggie@gmail.com', 'dd4b21e9ef71e1291183a46b913ae6f2', '1234567891012', 'ID Document', 1, 1, 0, 0, '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'dman.png'),
+(6, 'Ray', 'Farley', 100000000, 'Ray@gmail.com', 'dd4b21e9ef71e1291183a46b913ae6f2', '1234567891012', 'ID Document', 1, 1, 0, 0, '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'dman.png'),
+(7, 'Annabell', 'Larsen', 100000000, 'Annabell@gmail.com', 'dd4b21e9ef71e1291183a46b913ae6f2', '1234567891012', 'ID Document', 1, 1, 0, 0, '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'dman.png'),
+(8, 'Ammar', 'Bruce', 100000000, 'Ammar@gmail.com', 'dd4b21e9ef71e1291183a46b913ae6f2', '1234567891012', 'ID Document', 1, 1, 0, 0, '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'dman.png'),
+(9, 'Jordi', 'Stanley', 100000000, 'Jordi@gmail.com', 'dd4b21e9ef71e1291183a46b913ae6f2', '1234567891012', 'ID Document', 1, 1, 0, 0, '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'dman.png'),
+(10, 'Haleema', 'Hardin', 100000000, 'Haleema@gmail.com', 'dd4b21e9ef71e1291183a46b913ae6f2', '1234567891012', 'ID Document', 1, 1, 0, 0, '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'dman.png'),
+(11, 'Karl ', 'Monroe', 100000000, 'Karl@gmail.com', 'dd4b21e9ef71e1291183a46b913ae6f2', '1234567891012', 'ID Document', 1, 1, 0, 0, '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'dman.png'),
+(12, 'Anjali', 'Vu', 100000000, 'Anjali@gmail.com', 'dd4b21e9ef71e1291183a46b913ae6f2', '1234567891012', 'ID Document', 1, 1, 0, 0, '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'dman.png'),
+(13, 'Gregor', 'Read', 100000000, 'Gregor@gmail.com', 'dd4b21e9ef71e1291183a46b913ae6f2', '1234567891012', 'ID Document', 1, 1, 0, 0, '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'dman.png'),
+(14, 'Randy', 'Ware', 100000000, 'Randy@gmail.com', 'dd4b21e9ef71e1291183a46b913ae6f2', '1234567891012', 'ID Document', 1, 1, 0, 0, '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'dman.png'),
+(15, 'Kitty', 'Bannister', 100000000, 'Kitty@gmail.com', 'dd4b21e9ef71e1291183a46b913ae6f2', '1234567891012', 'ID Document', 1, 1, 0, 0, '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'dman.png'),
+(16, 'Ava-Grace', 'Knapp', 100000000, 'Knapp@gmail.com', 'dd4b21e9ef71e1291183a46b913ae6f2', '1234567891012', 'ID Document', 1, 1, 0, 0, '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'dman.png'),
+(17, 'Diogo', 'Lancaster', 100000000, 'Lancaster@gmail.com', 'dd4b21e9ef71e1291183a46b913ae6f2', '1234567891012', 'ID Document', 1, 1, 0, 0, '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'dman.png'),
+(18, 'Tymon', 'Gibbons', 100000000, 'Gibbons@gmail.com', 'dd4b21e9ef71e1291183a46b913ae6f2', '1234567891012', 'ID Document', 1, 1, 0, 0, '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'dman.png'),
+(19, 'Cayden', 'Doyle', 100000000, 'Doyle@gmail.com', 'dd4b21e9ef71e1291183a46b913ae6f2', '1234567891012', 'ID Document', 1, 1, 0, 0, '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'dman.png'),
+(20, 'Serena', 'Stubbs', 100000000, 'stubbs@gmail.com', 'dd4b21e9ef71e1291183a46b913ae6f2', '1234567891012', 'ID Document', 1, 1, 0, 0, '2021-10-24 06:48:02', '2021-10-24 06:48:02', 'dman.png');
 
 -- --------------------------------------------------------
 
@@ -436,6 +446,7 @@ ALTER TABLE `canteen`
 --
 ALTER TABLE `canteen_employee`
   ADD PRIMARY KEY (`cant_emp_id`),
+  ADD UNIQUE KEY `cant_emp_email` (`cant_emp_email`),
   ADD KEY `canteen_id` (`canteen_id`);
 
 --
@@ -500,7 +511,7 @@ ALTER TABLE `zone`
 -- AUTO_INCREMENT for table `canteen`
 --
 ALTER TABLE `canteen`
-  MODIFY `canteen_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `canteen_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `canteen_employee`

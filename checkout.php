@@ -30,6 +30,7 @@ if(isset($_POST['checkout'])){
 	if(mysqli_query($conn,$query))
 	{
 		echo "Order placed successfully";
+    unset($_SESSION["cart"]);
 	}
 	else
 	{
@@ -67,8 +68,16 @@ if(isset($_POST['checkout'])){
 $total = $_SESSION['grand_total'];
 $items = $_SESSION['items'];
 $total = number_format($total,2);
-$cust_address_id = $_SESSION['cust_address_id'];
 $fullAddress = $_SESSION['fullAdress'];
+
+
+if(isset($_SESSION['cust_address_id'])){
+  $cust_address_id = isset($_SESSION['cust_address_id']);
+}else {
+
+
+
+}
 
     ?>
        
@@ -90,7 +99,6 @@ $fullAddress = $_SESSION['fullAdress'];
         <form action="" method="POST" id="placeOrder">
         <h6 class="lead"><b>Delivery Options</h6>
         <div class="form-group radio-group">
-            <input type="radio" name="delivery_type" value=""> Choose Delivery Type
             <input type="radio" name="delivery_type" value="Delivery"> Delivery
             <br>
             <input type="radio" name="delivery_type" value="Collection" > Collection

@@ -1,5 +1,6 @@
 <?php 
 include_once("./config.php");
+include_once("./connection.php");
 //error_reporting(0);
 
 ?>
@@ -34,33 +35,42 @@ if(isset($_SESSION['customer_id'])){
 
     $customer_id = $_SESSION['customer_id'];
 
+    //echo $customer_id;
+
 
     if (isset($_POST['cust_address_id']))   
     $selval=$_POST['cust_address_id'];
     else 
      $selval='%';
 
-     $result = $db->getCustomerAddress($customer_id);
+     $sql = "SELECT * 
+     FROM 
+     customer_address ca, customer c
+     WHERE ca.customer_id = c.customer_id
+     AND ca.customer_id = '$customer_id'";
+
+     $result = mysqli_query($conn,$sql);
 
      if(!$result){
 
      } else {
 
 echo "<select name=cust_address_id onchange='form1.submit()'>";
+echo "<option value=''>Please select delivery address</option>";
 
 while ($row = mysqli_fetch_assoc($result)){
     if ($selval==$row['cust_address_id']){
     $selsel=" Selected";
-    $_SESSION['city'] =  $row['cust_add_city'];
-    $_SESSION['street'] = $row['cust_street'];
-    $_SESSION['portal_code'] = $row['cust_add_portalcode'];
-    $_SESSION['fullAdress'] = $row['cust_street'].", ".$row['cust_add_city'].", ".$row['cust_add_portalcode'];
+    $_SESSION['city'] =  $row['cust_address_city'];
+    $_SESSION['street'] = $row['cust_address_street'];
+    $_SESSION['portal_code'] = $row['cust_address_portalcode'];
+    $_SESSION['fullAdress'] = $row['cust_address_street'].", ".$row['cust_address_city'].", ".$row['cust_address_portalcode'];
     $_SESSION['cust_address_id'] = $row['cust_address_id'];
 
     }
  else 
     $selsel="";
-    $fullAdress = $row['cust_street'].", ".$row['cust_add_city'].", ".$row['cust_add_portalcode'];
+    $fullAdress = $row['cust_address_street'].", ".$row['cust_address_city'].", ".$row['cust_address_portalcode'];
     echo "<option  value=".$row['cust_address_id'].$selsel.">".$fullAdress."</option>";  
 }
 
@@ -71,17 +81,14 @@ echo"</select>";
 } else{
 
 }
-    
         ?>
 
         </form>
-
 
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="mr-auto"></div>
             <div class="navbar-nav">
 
-            
             <a href="<?php echo BASE_URL."search_food.php"; ?>" class="nav-item nav-link active">
                     <h5 class="px-5 cart menu-title">
                     <i class="far fa-search"></i> Search     

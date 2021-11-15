@@ -64,14 +64,20 @@ if(isset($_POST['Sign_InBtn'])) {
            $sql = "INSERT INTO customer (customer_f_name, customer_l_name, customer_email, 
             customer_phone,customer_password)  VALUES ( '$firstname', '$lastname' , '$email' , '$phone','$password' );
 
-         INSERT INTO  customer_address (customer_id,zone_id, cust_address_street,cust_address_city, cust_address_postalcode) 
-         VALUES($cust_last_id,'1','$street', '$city', '$postal_code')";
+            INSERT INTO customer_address (cust_address_portalcode, cust_address_city, cust_address_street, customer_id, zone_id) 
+            VALUES ('$postal_code','$city','$street','$cust_last_id','1');";
 
 
 
-          $result = multi_query($conn,$sql);
+          $result = mysqli_multi_query($conn,$sql);
           if($result){
             echo "<script> alert('Sign up successfully')</script>";
+
+            
+            $_SESSION["customer_id"] = $cust_last_id;
+            $_SESSION['fullAdress'] = $street.", ".$city.", ".$postal_code;
+          
+
           } else { 
             echo "<script> alert('Ooops something went wrong')</script>";
           }
