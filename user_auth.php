@@ -46,17 +46,29 @@ if(isset($_POST['Sign_InBtn'])) {
         $password = md5($password);
     
         $check_phone = "SELECT * FROM customer WHERE customer_phone = '$phone'";
+
+        $last_id = "SELECT MAX(customer_id) 
+                    FROM customer";
+
+        $last_id_result = mysqli_query($conn,$last_id);
+        $last_id_row = mysqli_fetch_assoc($last_id_result);
+
+        $cust_last_id =  $last_id_row['MAX(customer_id)'];
+        $cust_last_id  = $cust_last_id + 1;
+
     
         if(mysqli_num_rows(mysqli_query($conn,$check_phone))>0){
             echo "<script> alert('Phone is already taken.')</script>";
         } else {
     
            $sql = "INSERT INTO customer (customer_f_name, customer_l_name, customer_email, 
-            customer_phone,customer_password)  VALUES ( '$firstname', '$lastname' , '$email' , '$phone','$password' );
-            INSERT INTO  customer_address (cust_address_street,cust_address_city, cust_address_postalcode) VALUES('$street', '$city', '$postal_code')";
-          
-          $result = multi_query($conn,$sql);
-          if($result){
+            customer_phone,customer_password)  VALUES ( '$firstname', '$lastname' , '$email' , '$phone','$password' )";
+
+            $sql_2 = "INSERT INTO  customer_address (customer_id,zone_id, cust_address_street,cust_address_city, cust_address_postalcode) 
+            VALUES($cust_last_id,'1','$street', '$city', '$postal_code')";
+
+         // $result = mysqli_query($conn,$sql);
+          if(mysqli_query($conn,$sql)){
             echo "<script> alert('Sign up successfully')</script>";
           } else { 
             echo "<script> alert('Ooops something went wrong')</script>";
