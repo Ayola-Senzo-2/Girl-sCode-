@@ -38,6 +38,7 @@ if(isset($_POST['Sign_InBtn'])) {
         $lastname =   filter_input(INPUT_POST, 'lastname');
         $email= filter_input(INPUT_POST, 'email');
         $phone = filter_input(INPUT_POST, 'phone');
+        $address = filter_input(INPUT_POST, 'address');
         $password =filter_input(INPUT_POST, 'password');
     
         $password = md5($password);
@@ -49,9 +50,10 @@ if(isset($_POST['Sign_InBtn'])) {
         } else {
     
            $sql = "INSERT INTO customer (customer_f_name, customer_l_name, customer_email, 
-            customer_phone,customer_password)  VALUES ( '$firstname', '$lastname' , '$email' , '$phone','$password' )";
+            customer_phone,customer_password)  VALUES ( '$firstname', '$lastname' , '$email' , '$phone','$password' );
+            INSERT INTO  customer_address (cust_address) VALUES('$address')";
           
-          $result = mysqli_query($conn,$sql);
+          $result = multi_query($conn,$sql);
           if($result){
             echo "<script> alert('Sign up successfully')</script>";
           } else { 
@@ -101,6 +103,7 @@ if(isset($_POST['Sign_InBtn'])) {
         <tr><td>Last Name </td><td><input class="inputs" value="Letjane" type=text name="lastname"></td></tr>
         <tr><td>E-mail</td><td><input  class="inputs" value="velly@gmail.com" type=email name="email"></td></tr>
         <tr><td>Phone</td><td><input class="inputs" value=0000000000 type=text name="phone"></td></tr>
+        <tr><td>Address</td><td><input class="inputs" value = "Zeekoewater 311-JS, eMalahleni 1034"  type=text name="address"></td></tr>
         <tr><td>Password</td><td><input class="inputs" type=password name="password"></td></tr>
         <tr><td>Confirm password </td><td><input  class="inputs" type=password name="password2"></td></tr>
         </table>
