@@ -3,6 +3,10 @@ session_start();
 include_once("./config.php");
 require_once('connection.php');
 
+
+
+
+
 ?>
 
 
@@ -74,6 +78,9 @@ require_once('connection.php');
 
 <div class="container" >
     <div class = "row">
+
+
+    <?php // put the dropdown here?>
     
 <table class="table table-bordered mytable" style="width:100%">
   <thead>
@@ -81,55 +88,25 @@ require_once('connection.php');
       <th scope="col">Order#</th>
       <th scope="col">Canteen</th>
       <th scope="col">Date</th>
-      <th scope="col">Payment Status</th>
       <th scope="col">Payment Type</th>
+      <th scope="col">Payment Status</th>
       <th scope="col">Status</th>
+      <th scope="col">Action</th>
     </tr>
 
   </thead>
-  <thead>
-    <tr>
-      <th scope="col"></th>
-      <th scope="col"></th>
-      <th scope="col"></th>
-      <th scope="col">
-      
-      <select name="payment-status" id="payment-status" class="payment-status">
-            <option value="">Filter by</option>
-            <option value="paid">paid</option>
-            <option value="unpaid">unpaid</option>
-        </select>
-
-      </th>
-      <th scope="col">
-          
-      <select name="payment-status" id="payment-status" class="payment-status">
-            <option value="">Filter by</option>
-            <option value="paid">paid</option>
-            <option value="unpaid">unpaid</option>
-        </select>
-      </th>
-      <th scope="col">
-      
-        <select name="payment-status" id="payment-status" class="payment-status">
-            <option value="">Filter by</option>
-            <option value="paid">paid</option>
-            <option value="unpaid">unpaid</option>
-        </select>
-
-      </th>
-    </tr>
-
-  </thead>
-
   <tbody>
 
   <?php
 
-$customer_id = $_SESSION['customer_id'];
-  $sql = "SELECT * FROM orders o";
 
+$customer_id = $_SESSION['customer_id']; // assigning the customer id
 
+// retrieving the specified customer orders.
+  $sql = "SELECT * FROM orders o, canteen c
+  WHERE o.canteen_id = c.canteen_id
+  AND o.customer_id = '$customer_id'
+  ORDER BY o.order_id DESC";
 
   $order_num;
   $canteen_name;
@@ -145,7 +122,8 @@ $customer_id = $_SESSION['customer_id'];
   while($rows = mysqli_fetch_assoc($order_results)){
 
     $order_num = $rows['order_id'];
-   // $canteen_name = $rows['canteen_name'];
+
+   $canteen_name = $rows['canteen_name'];
     $order_place_date  = $rows['order_created_at'];;
     $order_payment_status  = $rows['order_payment_status'];;
     $order_payment_type  = $rows['order_payment_method'];
@@ -156,11 +134,12 @@ $customer_id = $_SESSION['customer_id'];
 
     <tr>
       <th scope="row"><?php echo $order_num;?></th>
-      <td>Corridor Hills</td>
+      <td><?php echo $canteen_name; ?></td>
       <td><?php echo  $order_place_date;?></td>
       <td><?php echo  $order_payment_type;?></td>
       <td><?php echo  $order_payment_status;?></td>
       <td><?php echo  $order_status;?></td>
+      <td>view</td>
     </tr>
 
 
