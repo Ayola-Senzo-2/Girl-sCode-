@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 15, 2021 at 10:14 AM
+-- Generation Time: Nov 15, 2021 at 08:50 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.6
 
@@ -26,6 +26,7 @@ CREATE DATABASE IF NOT EXISTS `AllCanteen`;
 SET FOREIGN_KEY_CHECKS=0;
 
 USE `AllCanteen`;
+
 -- --------------------------------------------------------
 
 --
@@ -192,7 +193,8 @@ INSERT INTO `customer` (`customer_id`, `customer_f_name`, `customer_l_name`, `cu
 (26, 'Dingaan', 'Letjane', '0000000000', 'velly@gmail.com', 'dd4b21e9ef71e1291183a46b913ae6f2', 0, '', '2021-11-09 10:08:55', '2021-11-09 10:08:55', NULL),
 (27, 'Dingaan', 'Letjane', '00060000000', 'velly@gmail.com', 'dd4b21e9ef71e1291183a46b913ae6f2', 0, '', '2021-11-09 12:56:10', '2021-11-09 12:56:10', NULL),
 (28, 'Dingaan', 'Letjane', '000000', 'velly@gmail.com', 'dd4b21e9ef71e1291183a46b913ae6f2', 0, '', '2021-11-09 12:57:00', '2021-11-09 12:57:00', NULL),
-(29, 'Dingaan', 'Letjane', '0764821062', 'vellya@gmail.com', 'dd4b21e9ef71e1291183a46b913ae6f2', 0, '', '2021-11-12 18:00:52', '2021-11-12 18:00:52', NULL);
+(29, 'Dingaan', 'Letjane', '0764821062', 'vellya@gmail.com', 'dd4b21e9ef71e1291183a46b913ae6f2', 0, '', '2021-11-12 18:00:52', '2021-11-12 18:00:52', NULL),
+(30, 'Dingaan', 'Letjane', '0000008800', 'velly@gmail.com', '4a7d1ed414474e4033ac29ccb8653d9b', 0, '', '2021-11-15 19:41:51', '2021-11-15 19:41:51', NULL);
 
 -- --------------------------------------------------------
 
@@ -202,9 +204,9 @@ INSERT INTO `customer` (`customer_id`, `customer_f_name`, `customer_l_name`, `cu
 
 CREATE TABLE `customer_address` (
   `cust_address_id` int(20) NOT NULL,
-  `cust_add_portalcode` int(4) NOT NULL,
-  `cust_add_city` varchar(255) DEFAULT NULL,
-  `cust_street` varchar(255) DEFAULT NULL,
+  `cust_address_portalcode` int(4) NOT NULL,
+  `cust_address_city` varchar(255) DEFAULT NULL,
+  `cust_address_street` varchar(255) DEFAULT NULL,
   `cust_address_created_at` timestamp NULL DEFAULT NULL,
   `cust_address_updated_at` timestamp NULL DEFAULT NULL,
   `customer_id` int(20) NOT NULL,
@@ -215,7 +217,7 @@ CREATE TABLE `customer_address` (
 -- Dumping data for table `customer_address`
 --
 
-INSERT INTO `customer_address` (`cust_address_id`, `cust_add_portalcode`, `cust_add_city`, `cust_street`, `cust_address_created_at`, `cust_address_updated_at`, `customer_id`, `zone_id`) VALUES
+INSERT INTO `customer_address` (`cust_address_id`, `cust_address_portalcode`, `cust_address_city`, `cust_address_street`, `cust_address_created_at`, `cust_address_updated_at`, `customer_id`, `zone_id`) VALUES
 (1, 1034, 'Witbank', '75 Mashaba drive', '2021-10-01 18:13:02', '0000-00-00 00:00:00', 1, 2),
 (2, 1035, 'Witbank', 'Duhva Park ext8', '0000-00-00 00:00:00', '2021-10-04 09:48:00', 2, 5),
 (3, 1034, 'Witbank', '1919 Mashaba Str', '2021-10-13 20:43:00', '2021-10-14 05:00:00', 1, 4),
@@ -226,7 +228,8 @@ INSERT INTO `customer_address` (`cust_address_id`, `cust_add_portalcode`, `cust_
 (8, 1035, 'Witbank', '32 Amaryllis, ext 10', '2021-10-18 01:40:00', '2021-10-18 11:47:00', 2, 3),
 (9, 1034, 'Witbank', '40 Amaryllis, ext 10', '2021-10-18 01:40:00', '2021-10-18 11:47:00', 4, 4),
 (10, 1034, 'Witbank', 'Rose-Innes street,ext10', '2021-10-20 04:17:00', '2021-10-20 16:17:00', 1, 1),
-(11, 1032, 'Witbank', 'PTN2024/03 Tasbet park ext2', '2021-10-22 03:50:00', '2021-10-22 14:00:00', 1, 5);
+(11, 1032, 'Witbank', 'PTN2024/03 Tasbet park ext2', '2021-10-22 03:50:00', '2021-10-22 14:00:00', 1, 5),
+(12, 1034, 'eMalahleni', 'Zeekoewater 311-JS', NULL, NULL, 30, 1);
 
 -- --------------------------------------------------------
 
@@ -529,13 +532,13 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `customer_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `customer_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `customer_address`
 --
 ALTER TABLE `customer_address`
-  MODIFY `cust_address_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `cust_address_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `delivery_man`
