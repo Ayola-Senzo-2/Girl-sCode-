@@ -81,6 +81,15 @@ require_once('connection.php');
 
 
     <?php // put the dropdown here?>
+    <select name = "orders" id = "orders">
+      <option value = "confirmed">confirmed</option>
+      <option value ="processing">processing</option>
+      <option value ="collected">collected</option>
+      <option value ="out for delivery">out for delivery</option>
+      <option value ="delivered">delivered</option>
+      <option value ="cancelled">cancelled</option>
+                </option>
+
     
 <table class="table table-bordered mytable" style="width:100%">
   <thead>
