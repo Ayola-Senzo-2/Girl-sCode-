@@ -124,7 +124,7 @@ if(isset($_POST['Sign_InBtn'])) {
         <tr><td>First Name</td><td><input class="inputs" value="Dingaan" type=text name="firstname"></td></tr>
         <tr><td>Last Name </td><td><input class="inputs" value="Letjane" type=text name="lastname"></td></tr>
         <tr><td>E-mail</td><td><input  class="inputs" value="velly@gmail.com" type=email name="email"></td></tr>
-        <tr><td>Phone</td><td><input class="inputs" value=0000000000 type=text name="phone"></td></tr>
+        <tr><td>Phone</td><td><input class="inputs" value=0000000000 type=tel pattern= "0[0-9]{9}" title = "10 digits, start with zero(0)" name="phone"></td></tr>
         <tr><td>Street</td><td><input class="inputs" value = "Zeekoewater 311-JS"  type=text name="street"></td></tr>
         <tr><td>City</td><td><input class="inputs" value = "eMalahleni"  type=text name="city"></td></tr>
         <tr><td>Postal_code</td><td><input class="inputs" value = "1034"  type=text name="postal_code"></td></tr>
@@ -159,8 +159,6 @@ if(isset($_POST['Sign_InBtn'])) {
   </div>
   </div>
 
-
-  
 <script type="text/javascript">
 function validatePassword(pwd1, pwd2){ 
     
