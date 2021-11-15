@@ -101,24 +101,18 @@ if(isset($_POST['Sign_InBtn'])) {
 
 </head>
 
-
+  <!--sign up page design-->
 <header id="header">
 <body>
-
 <?php require_once ("php/header.php"); ?>
-
-
 <div class="container">
   <div class="row">
     <div class="col">
-
-    
-    
+ 
 <div class="container confirm-container">
     <div class="row justify-content-center">
       <div class="px-4 pb-4 card">
         <h4 class="text-center text-complete-order">Sign up</h4>
-        
         <form action="" method=POST onsubmit = "return validatePassword(password.value, password2.value)">
         <table>
         <tr><td>First Name</td><td><input class="inputs" value="Dingaan" type=text name="firstname"></td></tr>
@@ -138,7 +132,7 @@ if(isset($_POST['Sign_InBtn'])) {
   </div>
 
 
-
+<!--sign in page design-->
 </div>
     <div class="col">
     <div class="container confirm-container">
@@ -159,6 +153,7 @@ if(isset($_POST['Sign_InBtn'])) {
   </div>
   </div>
 
+  <!--password validation-->
 <script type="text/javascript">
 function validatePassword(pwd1, pwd2){ 
     
