@@ -62,13 +62,15 @@ if(isset($_POST['Sign_InBtn'])) {
         } else {
     
            $sql = "INSERT INTO customer (customer_f_name, customer_l_name, customer_email, 
-            customer_phone,customer_password)  VALUES ( '$firstname', '$lastname' , '$email' , '$phone','$password' )";
+            customer_phone,customer_password)  VALUES ( '$firstname', '$lastname' , '$email' , '$phone','$password' );
 
-            $sql_2 = "INSERT INTO  customer_address (customer_id,zone_id, cust_address_street,cust_address_city, cust_address_postalcode) 
-            VALUES($cust_last_id,'1','$street', '$city', '$postal_code')";
+         INSERT INTO  customer_address (customer_id,zone_id, cust_address_street,cust_address_city, cust_address_postalcode) 
+         VALUES($cust_last_id,'1','$street', '$city', '$postal_code')";
 
-         // $result = mysqli_query($conn,$sql);
-          if(mysqli_query($conn,$sql)){
+
+
+          $result = multi_query($conn,$sql);
+          if($result){
             echo "<script> alert('Sign up successfully')</script>";
           } else { 
             echo "<script> alert('Ooops something went wrong')</script>";
