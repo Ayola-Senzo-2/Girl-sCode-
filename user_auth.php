@@ -38,7 +38,9 @@ if(isset($_POST['Sign_InBtn'])) {
         $lastname =   filter_input(INPUT_POST, 'lastname');
         $email= filter_input(INPUT_POST, 'email');
         $phone = filter_input(INPUT_POST, 'phone');
-        $address = filter_input(INPUT_POST, 'address');
+        $street = filter_input(INPUT_POST, 'street');
+        $city = filter_input(INPUT_POST, 'city');
+        $postal_code = filter_input(INPUT_POST, 'postal_code');
         $password =filter_input(INPUT_POST, 'password');
     
         $password = md5($password);
@@ -51,7 +53,7 @@ if(isset($_POST['Sign_InBtn'])) {
     
            $sql = "INSERT INTO customer (customer_f_name, customer_l_name, customer_email, 
             customer_phone,customer_password)  VALUES ( '$firstname', '$lastname' , '$email' , '$phone','$password' );
-            INSERT INTO  customer_address (cust_address) VALUES('$address')";
+            INSERT INTO  customer_address (cust_address_street,cust_address_city, cust_address_postalcode) VALUES('$street', '$city', '$postal_code')";
           
           $result = multi_query($conn,$sql);
           if($result){
@@ -103,7 +105,9 @@ if(isset($_POST['Sign_InBtn'])) {
         <tr><td>Last Name </td><td><input class="inputs" value="Letjane" type=text name="lastname"></td></tr>
         <tr><td>E-mail</td><td><input  class="inputs" value="velly@gmail.com" type=email name="email"></td></tr>
         <tr><td>Phone</td><td><input class="inputs" value=0000000000 type=text name="phone"></td></tr>
-        <tr><td>Address</td><td><input class="inputs" value = "Zeekoewater 311-JS, eMalahleni 1034"  type=text name="address"></td></tr>
+        <tr><td>Street</td><td><input class="inputs" value = "Zeekoewater 311-JS"  type=text name="street"></td></tr>
+        <tr><td>City</td><td><input class="inputs" value = "eMalahleni"  type=text name="city"></td></tr>
+        <tr><td>Postal_code</td><td><input class="inputs" value = "1034"  type=text name="postal_code"></td></tr>
         <tr><td>Password</td><td><input class="inputs" type=password name="password"></td></tr>
         <tr><td>Confirm password </td><td><input  class="inputs" type=password name="password2"></td></tr>
         </table>
