@@ -6,6 +6,7 @@ session_start();
           $phoneNo=$_SESSION['Phone'];
           $passwrd=$_SESSION['password'];
           $email=$_SESSION['email'];
+          $id=$_SESSION['id']; 
           $strName=$_SESSION['strtName'];
           $city=$_SESSION['city'];
           $code=$_SESSION['postalCode'];
@@ -42,9 +43,9 @@ session_start();
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="mr-auto"></div>
             <div class="navbar-nav">  
-            <a href="#" class="nav-item nav-link active">
+            <a href="update.php" class="nav-item nav-link active">
                     <h5 class="px-5 cart menu-title">
-                    <i class="far fa-search"></i> Search     
+                    <i class="far fa-search"></i> Update Details    
                     </h5>
                 </a>
 
@@ -75,9 +76,8 @@ session_start();
 </header>
 
 <?php
-
        echo "<caption><h2>User Profile</h2></caption>";
-       echo "<table align ='left' width ='250'>";
+       echo "<table align ='center' width ='250'>";
        
        
        echo"<td align = 'Left'>Name</td>";
@@ -101,20 +101,13 @@ session_start();
        
        echo "<tr>";
        echo"<td align = 'Left'>Password</td>";
-       echo "<td align = 'Right'><input type = 'text' name = 'txtEmail' value = $passwrd></td>";
+       echo "<td align = 'Right'><input type = 'text' name = 'txtpasswrd' value = $passwrd></td>";
        echo "</tr>";
        
-             
-       echo "<tr>";
-       echo "<td align = 'left'><input type = 'submit' name = 'btnSubmit' value = 'Update Details'></td>";
-       echo "</tr>";
-       echo "</table>";
-       
-       echo "<br> </br><br> </br><br> </br> <br> </br>";
-      
-       
+       echo "</br><br>";
+    
        echo "\n<caption ><h3>User Address</h3></caption>";
-       echo "\n<table align ='left' width ='250'>";
+       echo "\n<table align ='center' width ='250'>";
     
        
        echo"<td align = 'left'>Street Name</td>";
@@ -130,32 +123,6 @@ session_start();
        echo"<td align = 'left'>Postal Code</td>";
        echo "<td align = 'Right'><input type = 'text' name = 'txtPostalCode' value = $code></td>";
        echo "</tr>";
-       
-       
-       echo "<tr>";
-       echo "<td align = 'left'><input type = 'submit' name = btnSubmit value = 'Update Address'></td>";
-       echo "</tr>";
-       echo "</table>";
-       
-      if(isset($_POST['btnSubmit'])){
-          
-         if($_POST['name']= " " || $_POST['surn'] =" " ||$_POST['phoneNo']=" "||
-                   $_POST['email']=" " || $_POST['passwrd']= " ")
-                   {
-                  
-                 echo "<script type="text/Javascript">alert("Enter Data in all fields")</script>";
-         } else {
-             
-         }
-               
-              $id= $_POST["id"];
-              $update = "UPDATE customer SET customer_f_name = '$name',
-                                             customer_l_name= '$surn',
-                                             customer_phone = '$phoneNo',
-                                             customer_password = '$passwrd',
-                                             customer_email = '$email';
-                                             WHERE customer_id = $id";
-       }                           
        
                
 ?>
