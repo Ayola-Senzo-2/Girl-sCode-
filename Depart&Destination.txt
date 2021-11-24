@@ -1,0 +1,21 @@
+<?php
+namespace Phppot;
+
+use Phppot\departingRank;
+if (! empty($_POST["rankID"])) {
+    
+    $rankId = $_POST["rankID"];
+    
+    require_once __DIR__ . '/../Model/departingArea.php';
+    $rankDestination = new departingRank();
+    $rankResult = $rankDestination->getDestinationBYRankId($rankId);
+    ?>
+<option value="">Select Destination Rank</option>
+<?php
+    foreach ($rankResult as $Town) {
+        ?>
+<option value="<?php echo $Town["destinationID"]; ?>"><?php echo $Town["destinationTown"]; ?></option>
+<?php
+    }
+}
+?>
