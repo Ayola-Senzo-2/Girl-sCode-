@@ -1,5 +1,58 @@
 <?php
+namespace Phppot;
+use Phppot\departingRank;
+require_once __DIR__ . '/Model/departingArea.php';
+$rank = new departingRank();
+$rankResult = $rank->getAllRank();
+?>
+
+<?php
+	
+	session_start();
 	include('../database/dbConfig.php');
+	 	
+  if(isset($_SESSION['admin'])){
+    	header('location: addTrip.php');
+  	}
+
+    if(isset($_SESSION['passenger'])){
+      header('location: Available Taxis.php .php');
+    }
+	
+	
+
+	if(isset($_POST['login'])){
+		$cell = $_POST['cell'];
+		$password = $_POST['password'];
+
+		$sql = "SELECT * FROM user WHERE mobileNumber = '$cell' AND userRole='Admin'";
+		$query = $conn->query($sql);
+
+		if($query->num_rows < 1){
+			$_SESSION['error'] = 'Cannot find account with this mobile number';
+		}
+		else{
+			$row = $query->fetch_assoc();
+			//if(password_verify($password, $row['password'])){
+			 if($password==$row['password']){
+				$_SESSION['admin'] = $row['userID'];
+				header('location: addTrip.php');
+
+			}
+			else{
+				$_SESSION['error'] = 'Incorrect password';
+			}
+		}
+		
+	}
+	else{
+		$_SESSION['error'] = 'Input admin credentials first';
+	}
+
+	header('location: index.php');
+
+
+
 ?>
 
 <!DOCTYPE HTML>
@@ -30,7 +83,7 @@
 		</div>
 	    <nav>
 	        <ul>
-			    <li><a href="#Admin">Admin</a></li>
+			    <li><a href="sign-in.php">Admin</a></li>
 			    <li><a href="#Add_Trip">Add_Trip</a></li>
 			    <!--<li><a href="#elements">Elements</a></li>-->
 		    </ul>
@@ -39,14 +92,14 @@
 
 	<!-- Main -->
 	<div id="main">
-	<!-- Work -->
+	<!-- Work --
 	<article id="Admin">
 		<h2 class="major">Admin</h2>
-		<form method="post" action="add_taxi.php">
-		    <div class="fields">
+		<form method="post" action="sign_in.php">
+		   <div class="fields">
 				<div class="field">
 			        <label for="cell">Cell</label>
-					<input type="text" pattern = "0[0-9]{9}" title = "10 digits, start with zero(0)"  name="cell" id="cell" required/>
+					<input type="text" name="cell" id="cell" required/>
 				</div>
 			    <div class="field">
 			         <label for="name">Password</label>
@@ -54,10 +107,10 @@
 			    </div>
 	        </div>							
 		    <ul class="actions">
-			    <li><input type="submit" name="signInBtn" value="Sign In" class="primary" /></li>											
+			    <li><input type="submit" name="login" value="Sign In" class="primary" /></li>											
 		    </ul>
 	    </form>		
-		<a href="sign_up.php" >Sign Up</a>				
+		<a class="primary" href="sign_up.php" >Sign Up</a>				
 	    <!-- <form method="post" action="sign_up.php">
 			<li><input type="submit" name="signUpBtn" value="Sign Up" class="primary" /></li>
 		</form> -->
@@ -78,10 +131,11 @@ return x;
 
 </script>
 								
-<!--Add_Trip button-->
+	<!--Add_Trip button-->
+
 	<article id="Add_Trip">
 		<h2 class="major">Add_Trip</h2>
-			<form action= "Available Taxis.php" method=POST onsubmit = "return validate(Departure.value, Destination.value)">
+		<form action= "Available Taxis.php" method=POST onsubmit = "return validate(Departure.value, Destination.value)">
 				<label for="Departure">Enter departure rank:</label>
 				<input type="text" name="Departure" id="Departure" list = "departureList"/>
 				<datalist id = "departureList">
@@ -99,7 +153,7 @@ return x;
 					<option value = "Umgeni, eThekwini ">Umgeni </option>
  				</datalist>
 
-				 <label for="Destination">Enter destination rank:</label>
+				<!-- <label for="Destination">Enter destination rank:</label>
 				 <input type="text" name="Destination" id="Destination" list = "destinationList"/>
 				<datalist id = "destinationList">
 					<option value = "Wanderers, Johannesburg">Wanderers </option>
@@ -114,11 +168,40 @@ return x;
 					<option value = "Long-Distance, Witbank">Long-Distance </option>
 					<option value = "Sisonke Long-Distance, eThekwini ">Sisonke Long-Distance </option>
 					<option value = "Umgeni, eThekwini ">Umgeni </option>
- 				</datalist><br>
-				<form method="post" action=" ">
-					<ul class="actions">
-						<li><input type="submit" name="Add_TripBtn" value="Add_Trip" class="primary" /></li>
-					</ul>
+ 				</datalist><br> -->
+
+ <div class="row">
+            <label>Province:</label><br /> <select name="province"
+                id="rank-list" class="demoInputBox"
+                onChange="getDestination(this.value);">
+								<!--<option value disabled selected>Select Province</option> -->
+				<?php
+				foreach $rankResult as $rank) {
+					?>
+				<option value="<?php echo $rank["rankID"]; ?>"><?php echo $rank["rankName"]; ?></option>
+				<?php
+				}
+				?>
+				</select>
+						</div>
+						<div class="row">
+							<label>District:</label><br /> <select name="district"
+								id="destination-list" class="demoInputBox>
+								<!--<option value="">Select District</option>-->
+							</select>
+						</div>
+
+
+
+
+
+
+
+
+				 <form method="post" action=" ">
+				<ul class="actions">
+					<li><input type="submit" name="Add_TripBtn" value="Add_Trip" class="primary" /></li>
+				</ul>
 				</form>
 				</div>
         	</form><br>
