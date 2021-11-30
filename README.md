@@ -1,2 +1,3 @@
 # Girl-sCode-
-system about customers booking a taxify
+system about passenger booking into a taxi
+
